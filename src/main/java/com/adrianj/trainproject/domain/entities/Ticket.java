@@ -2,10 +2,15 @@ package com.adrianj.trainproject.domain.entities;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 @Data
 @Builder
@@ -27,6 +32,11 @@ public class Ticket {
     private Passenger passenger;
 
     private String day;
+
+    @JsonFormat(pattern = "HH:mm", timezone = "UTC")
+    @DateTimeFormat(pattern = "HH:mm")
+    private Date time;
+
 
     // Maybe it could be interesting to add the time when the train left.
 }
