@@ -20,11 +20,11 @@ public class Ticket {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "start_stationTime_id")
+    @JoinColumn(name = "start_stopStation_id")
     private Stops startStops;
 
     @ManyToOne
-    @JoinColumn(name = "end_stationTime_id")
+    @JoinColumn(name = "end_stopStation_id")
     private Stops endStops;
 
     @ManyToOne

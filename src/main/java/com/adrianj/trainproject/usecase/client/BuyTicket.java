@@ -1,5 +1,6 @@
 package com.adrianj.trainproject.usecase.client;
 
+import com.adrianj.trainproject.domain.controller.TicketController;
 import com.adrianj.trainproject.domain.entities.Passenger;
 import com.adrianj.trainproject.domain.entities.Stops;
 import com.adrianj.trainproject.domain.entities.Ticket;
@@ -8,6 +9,8 @@ import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
+import com.adrianj.trainproject.domain.services.TicketService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,21 +25,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @RestController
+@RequiredArgsConstructor
 public class BuyTicket {
 
-    private TicketRepository ticketRepository;
-    private PassengerRepository passengerRepository;
-    private TrainRepository trainRepository;
-    private StopsRepository stopsRepository;
+    private final TicketRepository ticketRepository;
+    private final PassengerRepository passengerRepository;
+    private final TrainRepository trainRepository;
+    private final StopsRepository stopsRepository;
+    private final TicketService ticketService;
 
-    @Autowired
-    public BuyTicket(TicketRepository ticketRepository, PassengerRepository passengerRepository, TrainRepository trainRepository, StopsRepository stopsRepository){
-
-        this.ticketRepository = ticketRepository;
-        this.passengerRepository = passengerRepository;
-        this.trainRepository = trainRepository;
-        this.stopsRepository = stopsRepository;
-    }
 
     @PostMapping("/buyTicket")
     public ResponseEntity<?> buy(@RequestBody RequestBuyTicket requestBuyTicket) throws ParseException {
@@ -45,16 +42,19 @@ public class BuyTicket {
         // Firstly, Check max seats and if there are available some seats.
         //
 
-        Train train = trainRepository.findByNumber(Integer.parseInt(requestBuyTicket.getTrainNumber())).get();
+        Train train = trainRepository.findByNumber(requestBuyTicket.getTrainNumber()).get();
         int maxSeat = train.getSeats();
 
         Stops startStops = stopsRepository.findById(requestBuyTicket.getIdStartStops()).get();
 
         Date time = startStops.getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String formatDate = simpleDateFormat.format(time);
 
-        List<Ticket> ticketList = ticketRepository.getListPassenger(train.getNumber(), time.toString()).get();
+        List<Ticket> tickets = ticketService.getTicketByDay(requestBuyTicket.getTrainNumber(), formatDate);
 
-        int numberPassenger = ticketList.size();
+        int numberPassenger = tickets.size();
+        System.out.println("Seats busy: " + numberPassenger);
 
         // If there aren´t available seats
         if (numberPassenger >= maxSeat)
@@ -64,11 +64,11 @@ public class BuyTicket {
         // Secondly, Check if the passenger is already registred.
         //
 
-        Passenger passenger = passengerRepository.findById(Long.parseLong(requestBuyTicket.getIdPassenger())).get();
+        Passenger passenger = passengerRepository.findById(requestBuyTicket.getIdPassenger()).get();
 
         boolean registred = false;
 
-        for (Ticket t : ticketList) {
+        for (Ticket t : tickets) {
 
             if (t.getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
 
@@ -124,18 +124,18 @@ public class BuyTicket {
 
         return ResponseEntity.ok(ticket);
     }
-    private class RequestBuyTicket{
+    private static class RequestBuyTicket{
 
-        private String trainNumber;
+        private int trainNumber;
         private long idStartStops;
         private long idEndStops;
-        private String idPassenger;
+        private long idPassenger;
 
-        public String getTrainNumber() {
+        public int getTrainNumber() {
             return trainNumber;
         }
 
-        public void setTrainNumber(String trainNumber) {
+        public void setTrainNumber(int trainNumber) {
             this.trainNumber = trainNumber;
         }
 
@@ -155,11 +155,11 @@ public class BuyTicket {
             this.idEndStops = idEndStops;
         }
 
-        public String getIdPassenger() {
+        public long getIdPassenger() {
             return idPassenger;
         }
 
-        public void setIdPassenger(String idPassenger) {
+        public void setIdPassenger(long idPassenger) {
             this.idPassenger = idPassenger;
         }
     }

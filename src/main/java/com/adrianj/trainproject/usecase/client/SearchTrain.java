@@ -1,6 +1,7 @@
 package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.domain.entities.Stops;
+import com.adrianj.trainproject.domain.entities.Train;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -36,23 +40,29 @@ public class SearchTrain {
     }
 
     @PostMapping("/searchTrain")
-    public ResponseEntity<?> search(@RequestBody RequestSearchTrain requestSearchTrain) throws ParseException {
+    public ResponseEntity<?> search(@RequestBody RequestSearchTrain requestSearchTrain) {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        Date startTime = new Date();
-        Date endTime = new Date();
+
+        Date startDate = Date.from(requestSearchTrain.startTime.atZone(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(requestSearchTrain.getEndTime().atZone(ZoneId.systemDefault()).toInstant());
 
         System.out.println(requestSearchTrain.toString());
         Optional<List<Stops>> optionalStopsList = stopsRepository.getTrainsPassingBetweenStations(requestSearchTrain.getStationId1(), requestSearchTrain.getStationId2(),
-                requestSearchTrain.getStartTime(), requestSearchTrain.getEndTime());
+                startDate, endDate);
 
         if(optionalStopsList.isPresent()){
 
             List<Stops> stopsList = optionalStopsList.get();
 
+            List<Train> trainList = new ArrayList<>();
+
+            for(Stops s : stopsList){
+
+                trainList.add(s.getTrainStops());
+            }
+
             return ResponseEntity.ok(stopsList);
         }
-
 
         return ResponseEntity.ok("ok");
 
@@ -62,8 +72,8 @@ public class SearchTrain {
 
         private long stationId1;
         private long stationId2;
-        private Date startTime;
-        private Date endTime;
+        private LocalDateTime  startTime;
+        private LocalDateTime  endTime;
 
         public long getStationId1() {
             return stationId1;
@@ -81,19 +91,19 @@ public class SearchTrain {
             this.stationId2 = stationId2;
         }
 
-        public Date getStartTime() {
+        public LocalDateTime  getStartTime() {
             return startTime;
         }
 
-        public void setStartTime(Date startTime) {
+        public void setStartTime(LocalDateTime  startTime) {
             this.startTime = startTime;
         }
 
-        public Date getEndTime() {
+        public LocalDateTime  getEndTime() {
             return endTime;
         }
 
-        public void setEndTime(Date endTime) {
+        public void setEndTime(LocalDateTime  endTime) {
             this.endTime = endTime;
         }
 
