@@ -4,6 +4,7 @@ import com.adrianj.trainproject.domain.entities.Train;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,7 +35,7 @@ public class AddNewTrain {
             return ResponseEntity.ok("ok");
         }else {
 
-            return ResponseEntity.status(500).body("Error, the number train already exists.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error, the number train already exists.");
         }
     }
 }

@@ -2,10 +2,13 @@ package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.domain.entities.Schedule;
 import com.adrianj.trainproject.domain.entities.Station;
+import com.adrianj.trainproject.domain.entities.Stops;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
+import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,63 +21,62 @@ import java.util.Optional;
 @RestController
 public class CheckStationTrainSchedule {
 
-    private TrainRepository trainRepository;
-    private StationRepository stationRepository;
-    private ScheduleRepository scheduleRepository;
-
+   private StopsRepository stopsRepository;
+   private StationRepository stationRepository;
     @Autowired
-    public CheckStationTrainSchedule(TrainRepository trainRepository, StationRepository stationRepository, ScheduleRepository scheduleRepository){
+    public CheckStationTrainSchedule(StopsRepository stopsRepository, StationRepository stationRepository){
 
-        this.trainRepository = trainRepository;
-        this.scheduleRepository = scheduleRepository;
+        this.stopsRepository = stopsRepository;
         this.stationRepository = stationRepository;
     }
 
     @PostMapping("/checktrain")
-    public ResponseEntity<List<Schedule>> getTrainSchedule(@RequestBody TrainRequest trainRequest){
+    public ResponseEntity<?> getTrainSchedule(@RequestBody TrainRequest trainRequest){
 
-        String stationName = trainRequest.getStation();
+        String stationName = trainRequest.getName();
 
         Optional<Station> optionalStation = stationRepository.findByName(stationName);
 
         if(optionalStation.isPresent()){
 
-            Optional<List<Schedule>> optionalSchedule = scheduleRepository.findAllByStation(optionalStation.get());
+            Optional<List<Stops>> optionalStops = stopsRepository.getOneStationTrainStopById(optionalStation.get().getId());
+            System.out.println(optionalStops.get().toString());
 
-            if(optionalSchedule.isPresent()){
+            if(optionalStops.isPresent()){
 
-                return ResponseEntity.ok(optionalSchedule.get());
+                return ResponseEntity.ok(optionalStops.get());
 
             }else{
 
-                return ResponseEntity.noContent().build();
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("There isn´t any stops in this station. Thanks");
             }
 
         }else{
 
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The station doesn´t exists. Thanks");
         }
     }
-}
 
-class TrainRequest{
 
-    private String station;
+    private static class TrainRequest{
 
-    public TrainRequest(String station) {
-        this.station = station;
+        private String name;
+
+        public TrainRequest(String station) {
+            this.name = station;
+
+        }
+
+        public TrainRequest() {
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String station) {
+            this.name = station;
+        }
 
     }
-
-    public TrainRequest() {
-    }
-
-    public String getStation() {
-        return station;
-    }
-
-    public void setStation(String station) {
-        this.station = station;
-    }
-
 }

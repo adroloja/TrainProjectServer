@@ -7,11 +7,14 @@ import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,15 +35,17 @@ public class ViewPassengerTrain {
     }
 
     @PostMapping("/getPassengerTrain")
-    public ResponseEntity<List<Passenger>> getPassangerTrain(@RequestBody RequestGetPassengerTrain requestGetPassengerTrain){
+    public ResponseEntity<?> getPassangerTrain(@RequestBody RequestGetPassengerTrain requestGetPassengerTrain) throws ParseException {
 
-        Optional<List<Ticket>> optionalTicketListticketList = ticketRepository.getListPassenger(requestGetPassengerTrain.getTrainNumber(), requestGetPassengerTrain.getDay());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        Optional<List<Ticket>> optionalTicketList = ticketRepository.getListPassenger(requestGetPassengerTrain.getTrainNumber(), requestGetPassengerTrain.getDay());
 
         List<Passenger> passengerList;
 
-        if(optionalTicketListticketList.isPresent()){
+        if(optionalTicketList.isPresent()){
 
-            List<Ticket> ticketList = optionalTicketListticketList.get();
+            List<Ticket> ticketList = optionalTicketList.get();
 
             passengerList = new ArrayList<>();
 
@@ -53,37 +58,38 @@ public class ViewPassengerTrain {
 
         }else {
 
-            return ResponseEntity.status(500).build();
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("There haven´t been any passenger registred in this train yet");
+        }
+    }
+    private static class RequestGetPassengerTrain {
+
+        private int trainNumber;
+        private String day;
+
+        public RequestGetPassengerTrain(int trainNumber, String day) {
+            this.trainNumber = trainNumber;
+            this.day = day;
+        }
+
+        public RequestGetPassengerTrain() {
+        }
+
+        public int getTrainNumber() {
+            return trainNumber;
+        }
+
+        public void setTrainNumber(int trainNumber) {
+            this.trainNumber = trainNumber;
+        }
+
+        public String getDay() {
+            return day;
+        }
+
+        public void setDay(String day) {
+            this.day = day;
         }
     }
 }
 
-class RequestGetPassengerTrain {
 
-    private String trainNumber;
-    private String day;
-
-    public RequestGetPassengerTrain(String trainNumber, String day) {
-        this.trainNumber = trainNumber;
-        this.day = day;
-    }
-
-    public RequestGetPassengerTrain() {
-    }
-
-    public String getTrainNumber() {
-        return trainNumber;
-    }
-
-    public void setTrainNumber(String trainNumber) {
-        this.trainNumber = trainNumber;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-}

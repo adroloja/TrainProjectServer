@@ -1,0 +1,134 @@
+{
+  "passengers": [
+    {
+      "name": "Adri",
+      "surname": "Jaimez",
+      "dateBirth": "1990-01-01",
+      "username": "adroyoyo",
+      "password": "1234",
+      "employe": true
+    },
+    {
+      "name": "Adela",
+      "surname": "Jaimez",
+      "dateBirth": "2023-01-01",
+      "username": "adelaj",
+      "password": "1234",
+      "employe": false
+    },
+    {
+      "name": "Maria",
+      "surname": "Díaz",
+      "dateBirth": "1990-01-01",
+      "username": "mariad",
+      "password": "1234",
+      "employe": false
+    }
+  ],
+  "stations": [
+    {
+      "name": "Málaga"
+    },
+    {
+      "name": "Granada"
+    },
+    {
+      "name": "Sevilla"
+    }
+  ],
+  "trains": [
+    {
+      "number": 1,
+      "seats": 100
+    },
+    {
+      "number": 2,
+      "seats": 120
+    },
+    {
+      "number": 3,
+      "seats": 130
+    }
+  ],
+  "stopses": [
+    {
+      "stationStop": {
+        "id": 1
+      },
+      "trainStops": {
+        "id": 1
+      },
+      "schedule": {
+        "id": 1
+      },
+      "time": "08/10/2023 10:30"
+    },
+    {
+      "stationStop": {
+        "id": 2
+      },
+      "trainStops": {
+        "id": 1
+      },
+      "schedule": {
+        "id": 1
+      },
+      "time": "08/10/2023 11:30"
+    },
+    {
+      "stationStop": {
+        "id": 3
+      },
+      "trainStops": {
+        "id": 1
+      },
+      "schedule": {
+        "id": 1
+      },
+      "time": "08/10/2023 12:30"
+    }
+  ],
+  "tickets" : [
+    {
+      "startStops": {
+        "id": 1
+      },
+      "endStops": {
+        "id": 3
+      },
+      "passenger": {
+        "id": 2
+      }
+    },
+    {
+      "startStops": {
+        "id": 2
+      },
+      "endStops": {
+        "id": 3
+      },
+      "passenger": {
+        "id": 3
+      }
+    },
+    {
+      "startStops": {
+        "id": 1
+      },
+      "endStops": {
+        "id": 2
+      },
+      "passenger": {
+        "id": 1
+      }
+    }
+  ],
+  "schedules": [
+    {
+      "train": {
+        "id": 1
+      }
+    }
+  ]
+
+  }

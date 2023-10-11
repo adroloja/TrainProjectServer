@@ -1,0 +1,508 @@
+2023-10-11 11:08:01 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 8412 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:08:01 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:08:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:08:01 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:08:02 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-11 11:08:02 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-11 11:08:02 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 11:08:02 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-11 11:08:02 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1027 ms
+2023-10-11 11:08:02 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:08:02 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:08:02 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:08:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:08:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:08:02 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:08:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 11:08:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:08:03 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 11:08:03 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 11:08:03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-11 11:08:03 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 2.952 seconds (JVM running for 3.488)
+2023-10-11 11:12:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:12:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 11:12:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 11:13:09 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 17356 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:13:09 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:13:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:13:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:13:10 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-11 11:13:10 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-11 11:13:10 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 11:13:10 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-11 11:13:10 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 891 ms
+2023-10-11 11:13:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:13:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:13:11 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:13:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:13:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:13:11 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:13:11 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [hibernate.ejb.interceptor], use [hibernate.session_factory.interceptor] instead
+2023-10-11 11:13:11 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+2023-10-11 11:13:11 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+2023-10-11 11:13:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 11:13:11 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 11:13:11 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-10-11 11:13:11 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-11 11:13:11 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1160)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.adrianj.trainproject.TrainprojectApplication.main(TrainprojectApplication.java:10)
+Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:156)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:239)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveDefaultableStrategy(StrategySelectorImpl.java:183)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveDefaultableStrategy(StrategySelectorImpl.java:170)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:164)
+	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.determineInterceptor(SessionFactoryOptionsBuilder.java:585)
+	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.<init>(SessionFactoryOptionsBuilder.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.<init>(SessionFactoryBuilderImpl.java:55)
+	at org.hibernate.boot.internal.DefaultSessionFactoryBuilderService.createSessionFactoryBuilder(DefaultSessionFactoryBuilderService.java:26)
+	at org.hibernate.boot.internal.MetadataImpl.getSessionFactoryBuilder(MetadataImpl.java:165)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 common frames omitted
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.example.SqlStatementInterceptor]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:133)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:152)
+	... 33 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : com.example.SqlStatementInterceptor
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:496)
+	at java.base/java.lang.Class.forName(Class.java:475)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:130)
+	... 34 common frames omitted
+2023-10-11 11:13:24 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 21548 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:13:24 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:13:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:13:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:13:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-11 11:13:25 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-11 11:13:25 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 11:13:25 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-11 11:13:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 859 ms
+2023-10-11 11:13:25 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:13:25 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:13:26 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:13:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:13:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:13:26 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:13:26 [main] WARN  org.hibernate.orm.deprecation - HHH90000021: Encountered deprecated setting [hibernate.ejb.interceptor], use [hibernate.session_factory.interceptor] instead
+2023-10-11 11:13:26 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+2023-10-11 11:13:26 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+2023-10-11 11:13:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 11:13:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 11:13:26 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-10-11 11:13:26 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-11 11:13:26 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1160)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.adrianj.trainproject.TrainprojectApplication.main(TrainprojectApplication.java:10)
+Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [com.example.SqlStatementInterceptor] as strategy [org.hibernate.Interceptor]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:156)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:239)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveDefaultableStrategy(StrategySelectorImpl.java:183)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveDefaultableStrategy(StrategySelectorImpl.java:170)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:164)
+	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.determineInterceptor(SessionFactoryOptionsBuilder.java:585)
+	at org.hibernate.boot.internal.SessionFactoryOptionsBuilder.<init>(SessionFactoryOptionsBuilder.java:315)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.<init>(SessionFactoryBuilderImpl.java:55)
+	at org.hibernate.boot.internal.DefaultSessionFactoryBuilderService.createSessionFactoryBuilder(DefaultSessionFactoryBuilderService.java:26)
+	at org.hibernate.boot.internal.MetadataImpl.getSessionFactoryBuilder(MetadataImpl.java:165)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 common frames omitted
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [com.example.SqlStatementInterceptor]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:133)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:152)
+	... 33 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : com.example.SqlStatementInterceptor
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:210)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:588)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:496)
+	at java.base/java.lang.Class.forName(Class.java:475)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:130)
+	... 34 common frames omitted
+2023-10-11 11:13:57 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 10252 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:13:57 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:13:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:13:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:13:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-11 11:13:58 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-11 11:13:58 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 11:13:58 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-11 11:13:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 830 ms
+2023-10-11 11:13:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:13:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:13:58 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:13:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:13:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:13:58 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:13:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 11:13:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:13:59 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 11:13:59 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 11:13:59 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 11:13:59 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 11:13:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-11 11:13:59 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 2.733 seconds (JVM running for 3.244)
+2023-10-11 11:14:55 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:14:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 11:14:55 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 11:15:06 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 10088 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:15:06 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:15:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:15:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:15:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-11 11:15:07 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-11 11:15:07 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-11 11:15:07 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-11 11:15:07 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 922 ms
+2023-10-11 11:15:07 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:15:07 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:15:07 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:15:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:15:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:15:07 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table schedule drop foreign key FK8x7cqx078595e7vsua30ekjl7
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops drop foreign key FKqp6k3uxlab7mgw2fhp6dxuhku
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops drop foreign key FKf82al3fuhgw5d2gbfh7gd53b
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops drop foreign key FKfusas1nsg9bag3y08wp6b7n16
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket drop foreign key FKauwxsfpqlfobm3o0mlybai5xd
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket drop foreign key FK3y0nr3g8pk6ygc173mjaaumgh
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket drop foreign key FKewr5a5xj5wbj2bik0d65rsegu
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists hibernate_sequence
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists passenger
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists schedule
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists station
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists stops
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists ticket
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - drop table if exists train
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table hibernate_sequence (next_val bigint) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table passenger (id bigint not null, date_birth varchar(255), employe bit not null, name varchar(255), password varchar(255), surname varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table schedule (id bigint not null auto_increment, train_id bigint, primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table station (id bigint not null auto_increment, name varchar(255), primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table stops (id bigint not null auto_increment, time datetime(6), schedule_id bigint, station_id bigint, train_id bigint, primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table ticket (id bigint not null auto_increment, end_station_time_id bigint, passenger_id bigint, start_station_time_id bigint, primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - create table train (id bigint not null auto_increment, number integer not null, seats integer not null, primary key (id)) engine=InnoDB
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table schedule add constraint FK8x7cqx078595e7vsua30ekjl7 foreign key (train_id) references train (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops add constraint FKqp6k3uxlab7mgw2fhp6dxuhku foreign key (schedule_id) references schedule (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops add constraint FKf82al3fuhgw5d2gbfh7gd53b foreign key (station_id) references station (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table stops add constraint FKfusas1nsg9bag3y08wp6b7n16 foreign key (train_id) references train (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket add constraint FKauwxsfpqlfobm3o0mlybai5xd foreign key (end_station_time_id) references stops (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket add constraint FK3y0nr3g8pk6ygc173mjaaumgh foreign key (passenger_id) references passenger (id)
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - alter table ticket add constraint FKewr5a5xj5wbj2bik0d65rsegu foreign key (start_station_time_id) references stops (id)
+2023-10-11 11:15:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 11:15:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:15:08 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into passenger (date_birth, employe, name, password, surname, username, id) values (?, ?, ?, ?, ?, ?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [1990-01-01]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BOOLEAN] - [true]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Adri]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [1234]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [Jaimez]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [adroyoyo]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into passenger (date_birth, employe, name, password, surname, username, id) values (?, ?, ?, ?, ?, ?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [2023-01-01]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BOOLEAN] - [false]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Adela]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [1234]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [Jaimez]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [adelaj]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [2]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into passenger (date_birth, employe, name, password, surname, username, id) values (?, ?, ?, ?, ?, ?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [1990-01-01]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BOOLEAN] - [false]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [Maria]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [1234]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [Díaz]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [6] as [VARCHAR] - [mariad]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [7] as [BIGINT] - [3]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into station (name) values (?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Málaga]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into station (name) values (?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Granada]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into station (name) values (?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Sevilla]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into train (number, seats) values (?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [1]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [100]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into train (number, seats) values (?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [2]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [120]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into train (number, seats) values (?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [3]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [130]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into schedule (train_id) values (?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into stops (schedule_id, station_id, time, train_id) values (?, ?, ?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [TIMESTAMP] - [Sun Oct 08 12:30:00 CEST 2023]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] DEBUG org.hibernate.SQL - insert into stops (schedule_id, station_id, time, train_id) values (?, ?, ?, ?)
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [2]
+2023-10-11 11:15:08 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [TIMESTAMP] - [Sun Oct 08 13:30:00 CEST 2023]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] DEBUG org.hibernate.SQL - insert into stops (schedule_id, station_id, time, train_id) values (?, ?, ?, ?)
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [3]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [TIMESTAMP] - [Sun Oct 08 14:30:00 CEST 2023]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] DEBUG org.hibernate.SQL - insert into ticket (end_station_time_id, passenger_id, start_station_time_id) values (?, ?, ?)
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [2]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] DEBUG org.hibernate.SQL - insert into ticket (end_station_time_id, passenger_id, start_station_time_id) values (?, ?, ?)
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [3]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [2]
+2023-10-11 11:15:09 [main] DEBUG org.hibernate.SQL - insert into ticket (end_station_time_id, passenger_id, start_station_time_id) values (?, ?, ?)
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [BIGINT] - [1]
+2023-10-11 11:15:09 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 11:15:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-11 11:15:09 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 3.209 seconds (JVM running for 3.707)
+2023-10-11 11:34:40 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 12452 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 11:34:40 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 11:34:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 11:34:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97 ms. Found 6 JPA repository interfaces.
+2023-10-11 11:34:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 11:34:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 11:34:42 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 11:34:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 11:34:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 11:34:43 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 11:34:44 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 11:34:44 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:34:44 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 11:34:45 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 11:34:45 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 11:34:45 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 11:34:45 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 6.068 seconds (JVM running for 7.18)
+2023-10-11 11:34:46 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 11:34:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 11:34:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 12:40:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 12:40:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 12:40:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 12:40:18 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 6544 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 12:40:18 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 12:40:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 12:40:19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2023-10-11 12:40:20 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 12:40:20 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 12:40:20 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 12:40:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 12:40:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 12:40:21 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 12:40:21 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 12:40:21 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 12:40:22 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 12:40:22 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 12:40:22 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 12:40:22 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 12:40:23 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.597 seconds (JVM running for 5.553)
+2023-10-11 12:40:23 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:23 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:23 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:23 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:23 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 12:40:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 12:40:23 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 12:40:51 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 10692 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 12:40:51 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 12:40:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 12:40:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2023-10-11 12:40:53 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 12:40:53 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 12:40:53 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 12:40:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 12:40:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 12:40:53 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 12:40:54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 12:40:54 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 12:40:55 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 12:40:55 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 12:40:55 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 12:40:55 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 12:40:55 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.285 seconds (JVM running for 5.266)
+2023-10-11 12:40:56 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:56 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:56 [main] INFO  o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-10-11 12:40:56 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2023-10-11 12:40:56 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 12:40:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 12:40:56 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 13:07:58 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 20584 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 13:07:58 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 13:07:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 13:07:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 6 JPA repository interfaces.
+2023-10-11 13:07:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 13:07:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 13:08:00 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 13:08:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 13:08:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 13:08:00 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 13:08:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 13:08:01 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:08:01 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 13:08:01 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 13:08:01 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 13:08:01 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 13:08:02 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 3.955 seconds (JVM running for 4.778)
+2023-10-11 13:08:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:08:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 13:08:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 13:08:33 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 1520 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 13:08:33 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 13:08:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 13:08:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 6 JPA repository interfaces.
+2023-10-11 13:08:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 13:08:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 13:08:35 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 13:08:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 13:08:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 13:08:35 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 13:08:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 13:08:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:08:36 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 13:08:36 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 13:08:36 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 13:08:36 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 13:08:37 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.028 seconds (JVM running for 4.836)
+2023-10-11 13:08:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:08:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 13:08:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 13:10:03 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 17508 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 13:10:03 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 13:10:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 13:10:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2023-10-11 13:10:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 13:10:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 13:10:05 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 13:10:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 13:10:05 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 13:10:05 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 13:10:06 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 13:10:06 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:10:07 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 13:10:07 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 13:10:07 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 13:10:07 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 13:10:08 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.532 seconds (JVM running for 5.319)
+2023-10-11 13:10:08 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:10:08 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 13:10:08 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 13:10:57 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 27460 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 13:10:57 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 13:10:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 13:10:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
+2023-10-11 13:10:59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 13:10:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 13:10:59 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 13:10:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 13:10:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 13:10:59 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 13:11:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 13:11:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:11:01 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 13:11:01 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 13:11:01 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 13:11:01 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 13:11:01 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.287 seconds (JVM running for 5.095)
+2023-10-11 13:11:02 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:11:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 13:11:02 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-11 13:24:38 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 15800 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-11 13:24:38 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-11 13:24:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-11 13:24:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 6 JPA repository interfaces.
+2023-10-11 13:24:39 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-11 13:24:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-11 13:24:39 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-11 13:24:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-11 13:24:40 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-11 13:24:40 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-11 13:24:41 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-11 13:24:41 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:24:41 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-11 13:24:41 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-11 13:24:41 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-11 13:24:41 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-11 13:24:42 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 3.993 seconds (JVM running for 4.847)
+2023-10-11 13:24:42 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-11 13:24:42 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-11 13:24:42 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

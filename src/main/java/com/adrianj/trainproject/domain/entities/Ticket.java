@@ -3,14 +3,10 @@ package com.adrianj.trainproject.domain.entities;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.util.Date;
 
 @Data
 @Builder
@@ -24,19 +20,19 @@ public class Ticket {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "train_id")
-    private Train train;
+    @JoinColumn(name = "start_stationTime_id")
+    private Stops startStops;
+
+    @ManyToOne
+    @JoinColumn(name = "end_stationTime_id")
+    private Stops endStops;
 
     @ManyToOne
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
-    private String day;
 
-    @JsonFormat(pattern = "HH:mm", timezone = "UTC")
-    @DateTimeFormat(pattern = "HH:mm")
-    private Date time;
-
-
-    // Maybe it could be interesting to add the time when the train left.
 }
+
+
+

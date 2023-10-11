@@ -1,4 +1,4 @@
-package com.adrianj.trainproject.controller;
+package com.adrianj.trainproject.domain.controller;
 
 import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
@@ -21,9 +21,9 @@ public class StationController {
     }
 
     @GetMapping("/getStation")
-    public ResponseEntity<List<Station>> getStations(){
+    public ResponseEntity<?> getStations(){
 
-        List<Station> listStation = (List<Station>) stationRepository.findAll();
+        List<Station> listStation = stationRepository.getAllStation().get();
 
         return ResponseEntity.ok(listStation);
     }

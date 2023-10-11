@@ -55,7 +55,7 @@ public class Login {
             }
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The username is not exists, please try again");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The username is not exist, please try again");
         }
     }
 }

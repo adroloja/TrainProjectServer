@@ -23,8 +23,12 @@ public class Station {
     private long id;
     private String name;
 
+/*
+
     @JsonIgnore
-    @OneToMany( mappedBy = "station")
-    private List<Schedule> schedules = new ArrayList<>();
+    @OneToMany(mappedBy = "stationStop")
+    private List<Stops> stops;
+
+ */
 
 }

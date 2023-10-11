@@ -1,4 +1,4 @@
-package com.adrianj.trainproject.controller;
+package com.adrianj.trainproject.domain.controller;
 
 import com.adrianj.trainproject.domain.entities.Schedule;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
