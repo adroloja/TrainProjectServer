@@ -2,6 +2,7 @@ package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.domain.entities.Passenger;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +13,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,16 +43,18 @@ class LoginTest {
         when(passengerRepository.findByUsername(passenger.getUsername())).thenReturn(Optional.of(passenger));
 
         // Call the method under test
-        ResponseEntity<String> response = login.getLogin(passenger);
+        ResponseEntity<?> response = login.getLogin(passenger);
 
         // Assert the response status and body
         assertEquals(HttpStatus.OK, response.getStatusCode());
         try {
-            Passenger responsePassenger = new ObjectMapper().readValue(response.getBody(), Passenger.class);
+            Passenger responsePassenger = new ObjectMapper().readValue((JsonParser) response.getBody(), Passenger.class);
             assertEquals(passenger.getUsername(), responsePassenger.getUsername());
             assertEquals(passenger.getPassword(), responsePassenger.getPassword());
         } catch (JsonProcessingException e) {
             fail("Error parsing response body");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
         // Test with wrong password

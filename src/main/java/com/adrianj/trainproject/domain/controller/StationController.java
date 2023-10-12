@@ -4,10 +4,13 @@ import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+
 
 @RestController
 public class StationController {
@@ -20,7 +23,7 @@ public class StationController {
         this.stationRepository = stationRepository;
     }
 
-    @GetMapping("/getStation")
+    @GetMapping("/getStations")
     public ResponseEntity<?> getStations(){
 
         List<Station> listStation = stationRepository.getAllStation().get();

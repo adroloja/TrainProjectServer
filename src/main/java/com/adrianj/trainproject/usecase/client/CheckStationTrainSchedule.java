@@ -40,7 +40,6 @@ public class CheckStationTrainSchedule {
         if(optionalStation.isPresent()){
 
             Optional<List<Stops>> optionalStops = stopsRepository.getOneStationTrainStopById(optionalStation.get().getId());
-            System.out.println(optionalStops.get().toString());
 
             if(optionalStops.isPresent()){
 

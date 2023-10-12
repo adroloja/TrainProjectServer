@@ -17,6 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,8 +44,11 @@ public class SearchTrain {
     public ResponseEntity<?> search(@RequestBody RequestSearchTrain requestSearchTrain) {
 
 
-        Date startDate = Date.from(requestSearchTrain.startTime.atZone(ZoneId.systemDefault()).toInstant());
-        Date endDate = Date.from(requestSearchTrain.getEndTime().atZone(ZoneId.systemDefault()).toInstant());
+        LocalDateTime startTime = requestSearchTrain.startTime.plus(2, ChronoUnit.HOURS);
+        LocalDateTime endTime = requestSearchTrain.endTime.plus(2, ChronoUnit.HOURS);
+
+        Date startDate = Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant());
 
         System.out.println(requestSearchTrain.toString());
         Optional<List<Stops>> optionalStopsList = stopsRepository.getTrainsPassingBetweenStations(requestSearchTrain.getStationId1(), requestSearchTrain.getStationId2(),

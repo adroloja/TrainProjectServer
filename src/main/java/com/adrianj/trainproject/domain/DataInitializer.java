@@ -3,6 +3,8 @@ package com.adrianj.trainproject.domain;
 import com.adrianj.trainproject.domain.entities.*;
 import com.adrianj.trainproject.domain.repositories.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.security.Key;
+import java.util.Base64;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -41,6 +45,14 @@ public class DataInitializer {
 
     @PostConstruct
     public void run() throws IOException {
+
+        /*
+
+        // Generator secret key
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        String secret = Base64.getEncoder().encodeToString(key.getEncoded());
+        System.out.println("jwt.secret=" + secret);
+         */
 
         logger.info("Starting data storage");
         ObjectMapper objectMapper = new ObjectMapper();

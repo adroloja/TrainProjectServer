@@ -54,7 +54,6 @@ public class BuyTicket {
         List<Ticket> tickets = ticketService.getTicketByDay(requestBuyTicket.getTrainNumber(), formatDate);
 
         int numberPassenger = tickets.size();
-        System.out.println("Seats busy: " + numberPassenger);
 
         // If there aren´t available seats
         if (numberPassenger >= maxSeat)
