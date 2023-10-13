@@ -273,3 +273,312 @@ This generated password is for development use only. Your security configuration
 2023-10-13 16:31:33 [http-nio-8034-exec-3] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
 2023-10-13 16:31:33 [http-nio-8034-exec-3] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
 2023-10-13 16:31:33 [http-nio-8034-exec-3] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 17:56:37 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 17:56:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 17:56:37 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 17:56:40 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 29716 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 17:56:40 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 17:56:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 17:56:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 6 JPA repository interfaces.
+2023-10-13 17:56:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 17:56:41 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 17:56:41 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 17:56:41 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 17:56:41 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1027 ms
+2023-10-13 17:56:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 17:56:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 17:56:42 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 17:56:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 17:56:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 17:56:42 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 17:56:42 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 17:56:42 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 17:56:42 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 17:56:43 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 17:56:43 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 17:56:43 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 17:56:43 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 5546c27a-7914-4163-ad4c-a57073756caf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 17:56:43 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65a8c306, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@71ce19ee, org.springframework.security.web.context.SecurityContextPersistenceFilter@77acc95a, org.springframework.security.web.header.HeaderWriterFilter@6f6c6c70, org.springframework.web.filter.CorsFilter@48ba37dc, org.springframework.security.web.authentication.logout.LogoutFilter@7c751692, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@322f84fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75c3584e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27aa7294, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@113cc14d, org.springframework.security.web.session.SessionManagementFilter@49f9758, org.springframework.security.web.access.ExceptionTranslationFilter@2823b7c5, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c966488]
+2023-10-13 17:56:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-13 17:56:43 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 3.16 seconds (JVM running for 3.647)
+2023-10-13 17:56:56 [http-nio-8034-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 17:56:56 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 17:56:56 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-10-13 17:56:56 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select passenger0_.id as id1_0_, passenger0_.date_birth as date_bir2_0_, passenger0_.employe as employe3_0_, passenger0_.name as name4_0_, passenger0_.password as password5_0_, passenger0_.surname as surname6_0_, passenger0_.username as username7_0_ from passenger passenger0_ where passenger0_.username=?
+2023-10-13 17:56:56 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [adelaj]
+2023-10-13 17:56:57 [http-nio-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 17:58:31 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 17:58:31 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Málaga]
+2023-10-13 17:58:31 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 17:58:31 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 17:58:31 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 17:58:31 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 19:41:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 19:41:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 19:41:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 19:41:22 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 28696 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 19:41:22 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 19:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 19:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 6 JPA repository interfaces.
+2023-10-13 19:41:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 19:41:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 19:41:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 19:41:23 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 19:41:23 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 971 ms
+2023-10-13 19:41:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 19:41:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 19:41:23 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 19:41:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 19:41:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 19:41:23 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 19:41:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 19:41:24 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 19:41:24 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 19:41:24 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 19:41:24 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 19:41:24 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 19:41:24 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 76483839-4ad3-4cc8-b96a-fad30155f2fb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 19:41:24 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@712594f4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30a4a111, org.springframework.security.web.context.SecurityContextPersistenceFilter@70efdd18, org.springframework.security.web.header.HeaderWriterFilter@7a2ffb0b, org.springframework.web.filter.CorsFilter@7f6a6d46, org.springframework.security.web.authentication.logout.LogoutFilter@7804a783, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@238a7e3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c05f83b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18356951, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ed5cc8c, org.springframework.security.web.session.SessionManagementFilter@7c751692, org.springframework.security.web.access.ExceptionTranslationFilter@7d95a717, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5a88849]
+2023-10-13 19:41:24 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'viewAllTrains' method 
+com.adrianj.trainproject.usecase.employees.ViewAllTrains#getAllTrain()
+to {GET [/getAllTrain]}: There is already 'trainController' bean method
+com.adrianj.trainproject.domain.controller.TrainController#getAllTrain() mapped.
+2023-10-13 19:41:24 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 19:41:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 19:41:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 19:41:24 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-10-13 19:41:24 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-10-13 19:41:24 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'viewAllTrains' method 
+com.adrianj.trainproject.usecase.employees.ViewAllTrains#getAllTrain()
+to {GET [/getAllTrain]}: There is already 'trainController' bean method
+com.adrianj.trainproject.domain.controller.TrainController#getAllTrain() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at com.adrianj.trainproject.TrainprojectApplication.main(TrainprojectApplication.java:13)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'viewAllTrains' method 
+com.adrianj.trainproject.usecase.employees.ViewAllTrains#getAllTrain()
+to {GET [/getAllTrain]}: There is already 'trainController' bean method
+com.adrianj.trainproject.domain.controller.TrainController#getAllTrain() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:669)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:635)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:332)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:420)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:76)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$2(AbstractHandlerMethodMapping.java:299)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:729)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:297)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:266)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:225)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:213)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 16 common frames omitted
+2023-10-13 19:43:11 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 14772 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 19:43:11 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 19:43:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 19:43:11 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 6 JPA repository interfaces.
+2023-10-13 19:43:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 19:43:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 19:43:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 19:43:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 19:43:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 893 ms
+2023-10-13 19:43:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 19:43:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 19:43:12 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 19:43:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 19:43:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 19:43:12 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 19:43:13 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 19:43:13 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 19:43:13 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 19:43:13 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 19:43:13 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 19:43:13 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 19:43:13 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 41dc3d49-d387-4cc9-b1f1-54aa81d295ae
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 19:43:13 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25c06894, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c2ae7d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a2ffb0b, org.springframework.security.web.header.HeaderWriterFilter@1cd2e348, org.springframework.web.filter.CorsFilter@6e7cb01a, org.springframework.security.web.authentication.logout.LogoutFilter@4cd9ee2c, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@236206f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43b74979, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e96f3cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c04ec8, org.springframework.security.web.session.SessionManagementFilter@5c46a957, org.springframework.security.web.access.ExceptionTranslationFilter@f7b7720, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e75bef1]
+2023-10-13 19:43:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-13 19:43:13 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 2.935 seconds (JVM running for 3.399)
+2023-10-13 19:43:49 [http-nio-8034-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 19:43:49 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 19:43:49 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-10-13 19:43:49 [http-nio-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 19:43:53 [http-nio-8034-exec-3] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 19:43:59 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select passenger0_.id as id1_0_, passenger0_.date_birth as date_bir2_0_, passenger0_.employe as employe3_0_, passenger0_.name as name4_0_, passenger0_.password as password5_0_, passenger0_.surname as surname6_0_, passenger0_.username as username7_0_ from passenger passenger0_ where passenger0_.username=?
+2023-10-13 19:43:59 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [adelaj]
+2023-10-13 19:45:26 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 19:45:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 19:45:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 22:05:12 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 24560 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 22:05:12 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 22:05:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 22:05:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2023-10-13 22:05:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 22:05:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 22:05:14 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 22:05:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 22:05:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 22:05:14 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 22:05:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 22:05:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:05:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 22:05:16 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 22:05:16 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 22:05:16 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 22:05:16 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4458f27d-b8ab-468d-a8f2-f62348b51bec
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 22:05:16 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@21be80f6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1af6d656, org.springframework.security.web.context.SecurityContextPersistenceFilter@49654a35, org.springframework.security.web.header.HeaderWriterFilter@be9cc86, org.springframework.web.filter.CorsFilter@4acdf6e7, org.springframework.security.web.authentication.logout.LogoutFilter@60251ddb, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@2de82bf8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@478cc5f1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ab3f194, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7804a783, org.springframework.security.web.session.SessionManagementFilter@3662c887, org.springframework.security.web.access.ExceptionTranslationFilter@43120a77, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@28dd8786]
+2023-10-13 22:05:17 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.795 seconds (JVM running for 5.74)
+2023-10-13 22:05:17 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:05:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 22:05:17 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 22:17:34 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 7676 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 22:17:34 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 22:17:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 22:17:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+2023-10-13 22:17:36 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 22:17:36 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 22:17:36 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 22:17:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 22:17:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 22:17:36 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 22:17:37 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 22:17:37 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:17:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 22:17:37 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 22:17:38 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 22:17:38 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 22:17:38 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 2a86318f-3efc-476b-b8db-29f99f6d83e8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 22:17:38 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54ec8ab3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@71b32407, org.springframework.security.web.context.SecurityContextPersistenceFilter@3bf41cd0, org.springframework.security.web.header.HeaderWriterFilter@65cc3902, org.springframework.web.filter.CorsFilter@1d686622, org.springframework.security.web.authentication.logout.LogoutFilter@606f0f70, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@400df2b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ab3f194, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8ab231, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70044113, org.springframework.security.web.session.SessionManagementFilter@49654a35, org.springframework.security.web.access.ExceptionTranslationFilter@67372d20, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a9ac8b]
+2023-10-13 22:17:39 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.602 seconds (JVM running for 5.425)
+2023-10-13 22:17:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:17:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 22:17:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 22:19:51 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 27636 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 22:19:51 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 22:19:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 22:19:52 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2023-10-13 22:19:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 22:19:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 22:19:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 22:19:52 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 22:19:52 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1078 ms
+2023-10-13 22:19:52 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 22:19:52 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 22:19:52 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 22:19:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 22:19:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 22:19:52 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 22:19:53 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 22:19:53 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:19:53 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 22:19:53 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 22:19:53 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 22:19:53 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 22:19:53 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 6333f2c8-d6ef-4c20-a328-1467aeb2e586
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 22:19:54 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b272860, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4351d055, org.springframework.security.web.context.SecurityContextPersistenceFilter@7d95a717, org.springframework.security.web.header.HeaderWriterFilter@f7b7720, org.springframework.web.filter.CorsFilter@25c06894, org.springframework.security.web.authentication.logout.LogoutFilter@43edd2ea, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@5c2ae7d7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a2ffb0b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@242ebd3b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e7cb01a, org.springframework.security.web.session.SessionManagementFilter@464abed, org.springframework.security.web.access.ExceptionTranslationFilter@ff1a5a0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3c468360]
+2023-10-13 22:19:54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-13 22:19:54 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 3.332 seconds (JVM running for 3.868)
+2023-10-13 22:20:14 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:20:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 22:20:14 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 22:20:23 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 2804 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 22:20:23 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 22:20:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 22:20:24 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 6 JPA repository interfaces.
+2023-10-13 22:20:25 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 22:20:25 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 22:20:25 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 22:20:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 22:20:25 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 22:20:25 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 22:20:26 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 22:20:26 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:20:26 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 22:20:27 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 22:20:27 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 22:20:27 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 22:20:27 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 21f1a2f4-de16-4784-8f54-8686f853a46a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 22:20:27 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4d7f9b33, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@782e0844, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d7772d3, org.springframework.security.web.header.HeaderWriterFilter@4603c412, org.springframework.web.filter.CorsFilter@608c7b5b, org.springframework.security.web.authentication.logout.LogoutFilter@6a7ab205, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@2643ed03, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5afba80c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@386f88b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17d45cfb, org.springframework.security.web.session.SessionManagementFilter@575cfec1, org.springframework.security.web.access.ExceptionTranslationFilter@68af8288, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43edd2ea]
+2023-10-13 22:20:28 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.659 seconds (JVM running for 5.545)
+2023-10-13 22:20:28 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 22:20:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 22:20:28 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 23:11:15 [main] INFO  c.a.t.TrainprojectApplicationTests - Starting TrainprojectApplicationTests using Java 20 on DESKTOP-12OB02U with PID 8280 (started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 23:11:15 [main] INFO  c.a.t.TrainprojectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 23:11:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 23:11:16 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 6 JPA repository interfaces.
+2023-10-13 23:11:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 23:11:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 23:11:17 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 23:11:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 23:11:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 23:11:17 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 23:11:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 23:11:18 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 23:11:18 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 23:11:18 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 23:11:18 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 23:11:18 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 23:11:18 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 59d68dfe-b32c-4932-836e-2a14f9d9eabf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 23:11:19 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@694f0655, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b11deb6, org.springframework.security.web.context.SecurityContextPersistenceFilter@32068aef, org.springframework.security.web.header.HeaderWriterFilter@7e615c6a, org.springframework.web.filter.CorsFilter@5d08a65c, org.springframework.security.web.authentication.logout.LogoutFilter@2e1c5d1f, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@5c13534a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ba0dcba, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c4ca86a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d7f9b33, org.springframework.security.web.session.SessionManagementFilter@64a4739, org.springframework.security.web.access.ExceptionTranslationFilter@4e35a219, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3cd28235]
+2023-10-13 23:11:19 [main] INFO  c.a.t.TrainprojectApplicationTests - Started TrainprojectApplicationTests in 4.713 seconds (JVM running for 5.631)
+2023-10-13 23:11:20 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 23:11:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 23:11:20 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -6,6 +6,8 @@ import com.adrianj.trainproject.domain.entities.Train;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
+import com.adrianj.trainproject.domain.services.TicketService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,76 +22,17 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class ViewPassengerTrain {
 
-    private TrainRepository trainRepository;
-    private ScheduleRepository scheduleRepository;
-    private TicketRepository ticketRepository;
-
-    @Autowired
-    public ViewPassengerTrain(TrainRepository trainRepository, ScheduleRepository scheduleRepository, TicketRepository ticketRepository){
-
-        this.trainRepository = trainRepository;
-        this.scheduleRepository = scheduleRepository;
-        this.ticketRepository = ticketRepository;
-    }
+    private final TicketService ticketService;
 
     @PostMapping("/getPassengerTrain")
-    public ResponseEntity<?> getPassangerTrain(@RequestBody RequestGetPassengerTrain requestGetPassengerTrain) throws ParseException {
+    public ResponseEntity<?> getPassangerTrain(@RequestBody TicketService.RequestGetPassengerTrain requestGetPassengerTrain) {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-        Optional<List<Ticket>> optionalTicketList = ticketRepository.getListPassenger(requestGetPassengerTrain.getTrainNumber(), requestGetPassengerTrain.getDay());
-
-        List<Passenger> passengerList;
-
-        if(optionalTicketList.isPresent()){
-
-            List<Ticket> ticketList = optionalTicketList.get();
-
-            passengerList = new ArrayList<>();
-
-            ticketList.forEach( ticket -> {
-
-                passengerList.add(ticket.getPassenger());
-            });
-
-            return ResponseEntity.ok(passengerList);
-
-        }else {
-
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("There haven´t been any passenger registred in this train yet");
-        }
+        return ticketService.getPassangerTrain(requestGetPassengerTrain);
     }
-    private static class RequestGetPassengerTrain {
 
-        private int trainNumber;
-        private String day;
-
-        public RequestGetPassengerTrain(int trainNumber, String day) {
-            this.trainNumber = trainNumber;
-            this.day = day;
-        }
-
-        public RequestGetPassengerTrain() {
-        }
-
-        public int getTrainNumber() {
-            return trainNumber;
-        }
-
-        public void setTrainNumber(int trainNumber) {
-            this.trainNumber = trainNumber;
-        }
-
-        public String getDay() {
-            return day;
-        }
-
-        public void setDay(String day) {
-            this.day = day;
-        }
-    }
 }
 
 

@@ -2,6 +2,8 @@ package com.adrianj.trainproject.usecase.employees;
 
 import com.adrianj.trainproject.domain.entities.Train;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
+import com.adrianj.trainproject.domain.services.TrainService;
+import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,20 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class AddNewTrain {
 
-    private TrainRepository trainRepository;
-
-    @Autowired
-    public AddNewTrain(TrainRepository trainRepository){
-
-        this.trainRepository = trainRepository;
-    }
+    private final TrainService trainService;
 
     @PostMapping("/addTrain")
-    public ResponseEntity<String> addTrain(@RequestBody Train train){
+    public ResponseEntity<?> addTrain(@RequestBody Train train){
 
-        Optional<Train> optionalTrain = trainRepository.findByNumber(train.getNumber());
+        return trainService.createTrain(train);
+    }
+}
+
+
+/*
+
+ Optional<Train> optionalTrain = trainRepository.findByNumber(train.getNumber());
 
         if(optionalTrain.isEmpty()){
 
@@ -37,5 +41,4 @@ public class AddNewTrain {
 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error, the number train already exists.");
         }
-    }
-}
+ */

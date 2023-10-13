@@ -13,15 +13,4 @@ public class TrainprojectApplication {
 		SpringApplication.run(TrainprojectApplication.class, args);
 	}
 
-	@Bean
-	public WebMvcConfigurer corsConfigurer(){
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				WebMvcConfigurer.super.addCorsMappings(registry);
-				registry.addMapping("/**").allowedOrigins("http://localhost:4200");
-			}
-		};
-	}
-
 }

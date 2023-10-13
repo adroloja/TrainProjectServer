@@ -2,6 +2,8 @@ package com.adrianj.trainproject.usecase.employees;
 
 import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
+import com.adrianj.trainproject.domain.services.StationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,30 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class AddNewStation {
 
-    private StationRepository stationRepository;
-
-    @Autowired
-    public AddNewStation(StationRepository stationRepository){
-
-        this.stationRepository = stationRepository;
-    }
-
+    private final StationService stationService;
     @PostMapping("/addStation")
-    public ResponseEntity<String> addStation(@RequestBody Station station){
+    public ResponseEntity<?> addStation(@RequestBody Station station){
 
-        Optional<Station> optionalStation = stationRepository.findByName(station.getName());
-
-        if(optionalStation.isEmpty()){
-
-            stationRepository.save(station);
-
-            return ResponseEntity.ok("ok");
-
-        }else {
-
-            return ResponseEntity.status(500).body("The station already exists.");
-        }
+      return stationService.createStation(station);
     }
 }
