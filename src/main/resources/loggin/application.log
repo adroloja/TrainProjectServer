@@ -136,3 +136,140 @@ This generated password is for development use only. Your security configuration
 2023-10-13 13:13:32 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-13 13:13:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-10-13 13:13:32 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 13:33:03 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 25364 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 13:33:03 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 13:33:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 13:33:03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 6 JPA repository interfaces.
+2023-10-13 13:33:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 13:33:04 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 13:33:04 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 13:33:04 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 13:33:04 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1159 ms
+2023-10-13 13:33:04 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 13:33:04 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 13:33:04 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 13:33:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 13:33:04 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 13:33:04 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 13:33:05 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 13:33:05 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 13:33:05 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 13:33:05 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 13:33:05 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 13:33:05 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 13:33:05 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: cecdceb0-e6a7-468c-b397-90cf34fef7ef
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 13:33:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c945ee7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51a5a8ba, org.springframework.security.web.context.SecurityContextPersistenceFilter@5c13534a, org.springframework.security.web.header.HeaderWriterFilter@21be80f6, org.springframework.web.filter.CorsFilter@16eb93af, org.springframework.security.web.authentication.logout.LogoutFilter@740fccd2, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@404566e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@782e0844, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c65ec63, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3ed87b6e, org.springframework.security.web.session.SessionManagementFilter@694f0655, org.springframework.security.web.access.ExceptionTranslationFilter@23ee70a7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1185b0b7]
+2023-10-13 13:33:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-13 13:33:06 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 3.446 seconds (JVM running for 4.05)
+2023-10-13 13:33:32 [http-nio-192.168.100.5-8034-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 13:33:32 [http-nio-192.168.100.5-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 13:33:32 [http-nio-192.168.100.5-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-10-13 13:33:32 [http-nio-192.168.100.5-8034-exec-2] DEBUG org.hibernate.SQL - select passenger0_.id as id1_0_, passenger0_.date_birth as date_bir2_0_, passenger0_.employe as employe3_0_, passenger0_.name as name4_0_, passenger0_.password as password5_0_, passenger0_.surname as surname6_0_, passenger0_.username as username7_0_ from passenger passenger0_ where passenger0_.username=?
+2023-10-13 13:33:32 [http-nio-192.168.100.5-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [adelaj]
+2023-10-13 13:33:33 [http-nio-192.168.100.5-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 13:42:25 [http-nio-192.168.100.5-8034-exec-5] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Málaga]
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 13:42:28 [http-nio-192.168.100.5-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:42:38 [http-nio-192.168.100.5-8034-exec-9] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Granada]
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 13:42:40 [http-nio-192.168.100.5-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Sevilla]
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 13:42:45 [http-nio-192.168.100.5-8034-exec-1] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:42:47 [http-nio-192.168.100.5-8034-exec-2] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where (stops0_.station_id=? or stops0_.station_id=?) and stops0_.time>=? and stops0_.time<=?
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [2] as [BIGINT] - [2]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [3] as [TIMESTAMP] - [Wed Oct 04 13:11:00 CEST 2023]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [4] as [TIMESTAMP] - [Wed Oct 11 13:11:00 CEST 2023]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_0_, station0_.name as name2_2_0_ from station station0_ where station0_.id=?
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_0_, station0_.name as name2_2_0_ from station station0_ where station0_.id=?
+2023-10-13 13:43:03 [http-nio-192.168.100.5-8034-exec-4] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2023-10-13 13:54:23 [http-nio-192.168.100.5-8034-exec-5] DEBUG org.hibernate.SQL - select passenger0_.id as id1_0_, passenger0_.date_birth as date_bir2_0_, passenger0_.employe as employe3_0_, passenger0_.name as name4_0_, passenger0_.password as password5_0_, passenger0_.surname as surname6_0_, passenger0_.username as username7_0_ from passenger passenger0_ where passenger0_.username=?
+2023-10-13 13:54:23 [http-nio-192.168.100.5-8034-exec-5] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [adroyoyo]
+2023-10-13 16:29:34 [main] INFO  c.a.t.TrainprojectApplication - Starting TrainprojectApplication using Java 20 on DESKTOP-12OB02U with PID 21544 (C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject\target\classes started by Adrian in C:\Users\Adrian\Desktop\Proyecto T-System\TrainProject\trainproject)
+2023-10-13 16:29:34 [main] INFO  c.a.t.TrainprojectApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 16:29:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 16:29:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 6 JPA repository interfaces.
+2023-10-13 16:29:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8034 (http)
+2023-10-13 16:29:35 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 16:29:35 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.80]
+2023-10-13 16:29:35 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-10-13 16:29:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1181 ms
+2023-10-13 16:29:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 16:29:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-10-13 16:29:35 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-10-13 16:29:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 16:29:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 16:29:35 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-10-13 16:29:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 16:29:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 16:29:36 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 16:29:36 [main] INFO  c.a.t.domain.DataInitializer - Starting data storage
+2023-10-13 16:29:36 [main] DEBUG org.hibernate.SQL - select count(*) as col_0_0_ from passenger passenger0_
+2023-10-13 16:29:36 [main] INFO  c.a.t.domain.DataInitializer - Data is already defined
+2023-10-13 16:29:36 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b118b799-4269-4061-b7e6-6672dd073a38
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-10-13 16:29:36 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@25c06894, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c2ae7d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@2de82bf8, org.springframework.security.web.header.HeaderWriterFilter@3fc4038f, org.springframework.web.filter.CorsFilter@6e7cb01a, org.springframework.security.web.authentication.logout.LogoutFilter@1640a6b5, com.adrianj.trainproject.config.jwt.filter.JwtAuthenticationFilter@236206f8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54ec8ab3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18ffc008, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c04ec8, org.springframework.security.web.session.SessionManagementFilter@21be80f6, org.springframework.security.web.access.ExceptionTranslationFilter@6b063695, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1e75bef1]
+2023-10-13 16:29:37 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8034 (http) with context path ''
+2023-10-13 16:29:37 [main] INFO  c.a.t.TrainprojectApplication - Started TrainprojectApplication in 3.491 seconds (JVM running for 4.211)
+2023-10-13 16:29:58 [http-nio-8034-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 16:29:58 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 16:29:58 [http-nio-8034-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2023-10-13 16:29:58 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select passenger0_.id as id1_0_, passenger0_.date_birth as date_bir2_0_, passenger0_.employe as employe3_0_, passenger0_.name as name4_0_, passenger0_.password as password5_0_, passenger0_.surname as surname6_0_, passenger0_.username as username7_0_ from passenger passenger0_ where passenger0_.username=?
+2023-10-13 16:29:58 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [adelaj]
+2023-10-13 16:29:59 [http-nio-8034-exec-4] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 16:30:40 [http-nio-8034-exec-6] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_
+2023-10-13 16:30:43 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 16:30:43 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Málaga]
+2023-10-13 16:30:43 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 16:30:43 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 16:30:43 [http-nio-8034-exec-8] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 16:30:43 [http-nio-8034-exec-8] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 16:30:46 [http-nio-8034-exec-9] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 16:30:46 [http-nio-8034-exec-9] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Granada]
+2023-10-13 16:30:46 [http-nio-8034-exec-9] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 16:30:46 [http-nio-8034-exec-9] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2023-10-13 16:30:46 [http-nio-8034-exec-9] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 16:30:46 [http-nio-8034-exec-9] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 16:30:48 [http-nio-8034-exec-10] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 16:30:48 [http-nio-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Sevilla]
+2023-10-13 16:30:48 [http-nio-8034-exec-10] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 16:30:48 [http-nio-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2023-10-13 16:30:48 [http-nio-8034-exec-10] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 16:30:48 [http-nio-8034-exec-10] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 16:31:29 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 16:31:29 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Granada]
+2023-10-13 16:31:29 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 16:31:29 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [2]
+2023-10-13 16:31:29 [http-nio-8034-exec-2] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 16:31:29 [http-nio-8034-exec-2] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
+2023-10-13 16:31:33 [http-nio-8034-exec-3] DEBUG org.hibernate.SQL - select station0_.id as id1_2_, station0_.name as name2_2_ from station station0_ where station0_.name=?
+2023-10-13 16:31:33 [http-nio-8034-exec-3] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Sevilla]
+2023-10-13 16:31:33 [http-nio-8034-exec-3] DEBUG org.hibernate.SQL - select stops0_.id as id1_3_, stops0_.schedule_id as schedule3_3_, stops0_.station_id as station_4_3_, stops0_.time as time2_3_, stops0_.train_id as train_id5_3_ from stops stops0_ where stops0_.station_id=?
+2023-10-13 16:31:33 [http-nio-8034-exec-3] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [3]
+2023-10-13 16:31:33 [http-nio-8034-exec-3] DEBUG org.hibernate.SQL - select schedule0_.id as id1_1_0_, schedule0_.train_id as train_id2_1_0_, train1_.id as id1_5_1_, train1_.number as number2_5_1_, train1_.seats as seats3_5_1_ from schedule schedule0_ left outer join train train1_ on schedule0_.train_id=train1_.id where schedule0_.id=?
+2023-10-13 16:31:33 [http-nio-8034-exec-3] TRACE o.h.type.descriptor.sql.BasicBinder - binding parameter [1] as [BIGINT] - [1]
