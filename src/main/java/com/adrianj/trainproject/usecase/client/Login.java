@@ -51,7 +51,7 @@ public class Login {
         }
     }
 
-    private static class UserDto {
+    static class UserDto {
 
         private Passenger passenger;
         private String token;

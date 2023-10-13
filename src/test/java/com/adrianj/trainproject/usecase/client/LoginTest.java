@@ -1,10 +1,8 @@
 package com.adrianj.trainproject.usecase.client;
 
+import com.adrianj.trainproject.config.jwt.JwtUtils;
 import com.adrianj.trainproject.domain.entities.Passenger;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -13,7 +11,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.io.IOException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,6 +20,9 @@ class LoginTest {
 
     @Mock
     private PassengerRepository passengerRepository;
+
+    @Mock
+    private JwtUtils jwtUtils;
 
     @InjectMocks
     private Login login;
@@ -41,21 +41,17 @@ class LoginTest {
     void getLogin() {
         // Mock the repository response
         when(passengerRepository.findByUsername(passenger.getUsername())).thenReturn(Optional.of(passenger));
+        when(jwtUtils.generateToken(passenger.getUsername())).thenReturn("mockToken");
 
         // Call the method under test
         ResponseEntity<?> response = login.getLogin(passenger);
 
         // Assert the response status and body
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        try {
-            Passenger responsePassenger = new ObjectMapper().readValue((JsonParser) response.getBody(), Passenger.class);
-            assertEquals(passenger.getUsername(), responsePassenger.getUsername());
-            assertEquals(passenger.getPassword(), responsePassenger.getPassword());
-        } catch (JsonProcessingException e) {
-            fail("Error parsing response body");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        assertTrue(response.getBody() instanceof Login.UserDto);
+        Login.UserDto responseUser = (Login.UserDto) response.getBody();
+        assertEquals(passenger.getUsername(), responseUser.getPassenger().getUsername());
+        assertEquals("mockToken", responseUser.getToken());
 
         // Test with wrong password
         Passenger wrongPasswordPassenger = new Passenger();
