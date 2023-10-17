@@ -20,7 +20,7 @@ public class PassengerService {
     private final PassengerRepository passengerRepository;
     private final JwtUtils jwtUtils;
 
-    public ResponseEntity<String> createPassenger(Passenger passenger){
+    public ResponseEntity<?> createPassenger(Passenger passenger){
 
         Optional<Passenger> optionalPassenger = passengerRepository.findByUsername(passenger.getUsername());
 
@@ -28,23 +28,11 @@ public class PassengerService {
 
             passengerRepository.save(passenger);
 
-            ObjectMapper objectMapper = new ObjectMapper();
-            String response;
-
-            try{
-
-                response = objectMapper.writeValueAsString(passenger);
-
-            } catch (JsonProcessingException e) {
-
-                return ResponseEntity.status(500).body("Error to convert the passenger to Json");
-            }
-
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(passenger);
 
         }else{
 
-            return  ResponseEntity.ok("The username is already exist. Please try another username");
+            return  ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The username is already exist. Please try another username");
         }
     }
 
@@ -80,10 +68,10 @@ public class PassengerService {
 
             passengerRepository.save(passenger);
 
-            return ResponseEntity.ok("Update completed");
+            return ResponseEntity.ok("{\"message\": \"Update completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The passenger doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The Passenger doesn´t exist\"}");
         }
     }
 
@@ -93,10 +81,10 @@ public class PassengerService {
 
             passengerRepository.delete(passengerRepository.findById(id).get());
 
-            return ResponseEntity.ok("Delete completed");
+            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The Passenger id doesn´t exist");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The Passenger doesn´t exist\"}");
         }
     }
 

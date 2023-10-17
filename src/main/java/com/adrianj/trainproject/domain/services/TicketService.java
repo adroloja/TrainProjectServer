@@ -9,7 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,9 +71,49 @@ public class TicketService {
         }
     }
 
-    public ResponseEntity<?> getPassangerTrain(RequestGetPassengerTrain requestGetPassengerTrain){
+    public ResponseEntity<?> getTicketByPassengerAndDay(RequestTicketPassengerDay requestTicketPassengerDay) throws ParseException {
 
-        Optional<List<Ticket>> optionalTicketList = ticketRepository.getListPassenger(requestGetPassengerTrain.getTrainNumber(), requestGetPassengerTrain.getDay());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+        Date date = simpleDateFormat.parse(requestTicketPassengerDay.getDay());
+
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+
+        Date date1 = simpleDateFormat.parse(requestTicketPassengerDay.getDay());
+
+        date1.setHours(23);
+        date1.setMinutes(59);
+        date1.setSeconds(59);
+
+        return ResponseEntity.ok( ticketRepository.getListTicketByIdAndDay(requestTicketPassengerDay.getIdPassenger(), date, date1));
+    }
+
+    public ResponseEntity<?> getPassangerTrain(RequestGetPassengerTrain requestGetPassengerTrain) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat fullsimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+        Date date = simpleDateFormat.parse(requestGetPassengerTrain.getDay());
+
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+
+        String startDate = fullsimpleDateFormat.format(date);
+
+        Date date1 = simpleDateFormat.parse(requestGetPassengerTrain.getDay());
+
+        date1.setHours(23);
+        date1.setMinutes(59);
+        date1.setSeconds(59);
+
+        String endDate = fullsimpleDateFormat.format(date1);
+
+        System.out.println("Train: " + requestGetPassengerTrain.getTrainNumber());
+
+        Optional<List<Ticket>> optionalTicketList = ticketRepository.getListPassenger(requestGetPassengerTrain.getTrainNumber(), date, date1);
 
         List<Passenger> passengerList;
 
@@ -90,6 +133,28 @@ public class TicketService {
         }else {
 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("There haven´t been any passenger registred in this train yet");
+        }
+    }
+
+    public static class RequestTicketPassengerDay{
+
+        long idPassenger;
+        String day;
+
+        public long getIdPassenger() {
+            return idPassenger;
+        }
+
+        public void setIdPassenger(long idPassenger) {
+            this.idPassenger = idPassenger;
+        }
+
+        public String getDay() {
+            return day;
+        }
+
+        public void setDay(String day) {
+            this.day = day;
         }
     }
 

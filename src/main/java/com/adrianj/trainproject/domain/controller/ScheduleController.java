@@ -2,9 +2,12 @@ package com.adrianj.trainproject.domain.controller;
 
 import com.adrianj.trainproject.domain.entities.Schedule;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
+import com.adrianj.trainproject.domain.services.ScheduleService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,22 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class ScheduleController {
 
-    private ScheduleRepository scheduleRepository;
+    private final ScheduleService scheduleService;
 
-    @Autowired
-    public ScheduleController(ScheduleRepository scheduleRepository){
+    @GetMapping("/getAllSchedules")
+    public ResponseEntity<?> getAllSchedule(){
 
-        this.scheduleRepository = scheduleRepository;
+        return scheduleService.getAllSchedule();
     }
 
     @PostMapping("/insertSchedule")
-    public ResponseEntity<String> insertSchedule(@RequestBody Schedule schedule){
+    public ResponseEntity<?> insertSchedule(@RequestBody Schedule schedule){
 
-        Schedule schedule1 = scheduleRepository.save(schedule);
-
-        return ResponseEntity.ok("Ok");
+        return scheduleService.insertSchedule(schedule);
     }
 
 }

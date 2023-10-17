@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
@@ -35,7 +37,7 @@ public class TrainService {
             return ResponseEntity.ok(train);
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The train number is already exist. Please try another train number");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The train number is already exist. Please try another train number\"}");
         }
     }
 
@@ -51,10 +53,10 @@ public class TrainService {
 
             trainRepository.save(t);
 
-            return ResponseEntity.ok("Update completed.");
+            return ResponseEntity.ok("{\"message\": \"Update completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The train doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The train doesn´t exist.\"}");
 
         }
     }
@@ -67,10 +69,10 @@ public class TrainService {
 
             trainRepository.delete(optionalTrain.get());
 
-            return ResponseEntity.ok("Delete completed.");
+            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The train doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The train doesn´t exist.\"}");
         }
     }
 
@@ -83,7 +85,7 @@ public class TrainService {
             return ResponseEntity.ok(optionalTrain.get());
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The train doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The train doesn´t exist.\"}");
         }
     }
 
@@ -114,6 +116,62 @@ public class TrainService {
         }
 
         return ResponseEntity.ok("ok");
+
+    }
+
+    public ResponseEntity<?> getStationStops(TrainRequest trainRequest){
+
+        return ResponseEntity.ok(this.stopsRepository.getStopsStationByName(trainRequest.getName()));
+    }
+
+    public ResponseEntity<?> getStationStopsByDay(TrainRequest trainRequest) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat fullsimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+        Date date = simpleDateFormat.parse(trainRequest.getDay());
+
+        date.setHours(0);
+        date.setMinutes(0);
+        date.setSeconds(0);
+
+        Date date1 = simpleDateFormat.parse(trainRequest.getDay());
+
+        date1.setHours(23);
+        date1.setMinutes(59);
+        date1.setSeconds(59);
+
+        return ResponseEntity.ok(this.stopsRepository.getListStopStationWithTime(trainRequest.getName(), date, date1).get());
+    }
+
+    public static class TrainRequest{
+
+        private String name;
+        private String day;
+
+        public TrainRequest(String station) {
+            this.name = station;
+
+        }
+
+        public TrainRequest() {
+        }
+
+        public String getDay() {
+            return day;
+        }
+
+        public void setDay(String day) {
+            this.day = day;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String station) {
+            this.name = station;
+        }
 
     }
 

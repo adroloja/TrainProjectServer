@@ -28,7 +28,7 @@ public class ViewPassengerTrain {
     private final TicketService ticketService;
 
     @PostMapping("/getPassengerTrain")
-    public ResponseEntity<?> getPassangerTrain(@RequestBody TicketService.RequestGetPassengerTrain requestGetPassengerTrain) {
+    public ResponseEntity<?> getPassangerTrain(@RequestBody TicketService.RequestGetPassengerTrain requestGetPassengerTrain) throws ParseException {
 
         return ticketService.getPassangerTrain(requestGetPassengerTrain);
     }

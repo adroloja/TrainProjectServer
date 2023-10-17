@@ -69,7 +69,7 @@ public class BuyTicket {
 
         for (Ticket t : tickets) {
 
-            if (t.getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
+            if (t.getPassenger().getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
 
                 registred = true;
             }

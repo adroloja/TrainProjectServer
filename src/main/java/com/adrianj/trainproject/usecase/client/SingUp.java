@@ -2,8 +2,10 @@ package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.domain.entities.Passenger;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
+import com.adrianj.trainproject.domain.services.PassengerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,19 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class SingUp {
-    private PassengerRepository passengerRepository;
 
-    @Autowired
-    public SingUp(PassengerRepository passengerRepository){
-
-        this.passengerRepository = passengerRepository;
-    }
+    private final PassengerService passengerService;
 
     @PostMapping("/registrer")
-    public ResponseEntity<String> registrer(@RequestBody Passenger passenger){
+    public ResponseEntity<?> registrer(@RequestBody Passenger passenger){
 
-        Optional<Passenger> optionalPassenger = passengerRepository.findByUsername(passenger.getUsername());
+      return passengerService.createPassenger(passenger);    }
+}
+
+/*
+  Optional<Passenger> optionalPassenger = passengerRepository.findByUsername(passenger.getUsername());
 
         if(optionalPassenger.isEmpty()){
 
@@ -49,6 +51,4 @@ public class SingUp {
 
             return  ResponseEntity.ok("The username is already exist. Please try another username");
         }
-
-    }
-}
+ */

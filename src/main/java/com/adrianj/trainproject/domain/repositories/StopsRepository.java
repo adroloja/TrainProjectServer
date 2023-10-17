@@ -15,6 +15,14 @@ public interface StopsRepository extends CrudRepository<com.adrianj.trainproject
     @Query("select u from Stops u where u.stationStop.id = :station_id")
     Optional<List<Stops>> getOneStationTrainStopById(@Param("station_id") long stationId);
 
+    @Query("select u from Stops u where u.stationStop.name = :stationName")
+    Optional<List<Stops>> getStopsStationByName(@Param("stationName") String stationName);
+
+    @Query("select u from Stops u where u.stationStop.name = :stationName and u.time between :startDate and :endDate")
+    Optional<List<Stops>> getListStopStationWithTime(@Param("stationName") String stationName,
+                                                     @Param("startDate") Date startDate,
+                                                     @Param("endDate") Date endDate);
+
     @Query("SELECT u FROM Stops u WHERE (u.stationStop.id = :stationA OR u.stationStop.id = :stationB) AND u.time >= :startTime AND u.time <= :endTime")
     Optional<List<Stops>> getTrainsPassingBetweenStations(
             @Param("stationA") long stationId1,

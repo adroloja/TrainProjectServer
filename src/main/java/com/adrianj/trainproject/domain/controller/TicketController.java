@@ -7,13 +7,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+
 @RestController
 @RequiredArgsConstructor
 public class TicketController {
 
     private final TicketService ticketService;
 
-    @PostMapping("/getAllTicket")
+    @GetMapping("/getAllTicket")
+    public ResponseEntity<?> getAllTickets(){
+
+        return ResponseEntity.ok(ticketService.getAllTickets());
+    }
+
+    @PostMapping("/getAllTicketByDate")
     public ResponseEntity<?> getAllTicketByDate(@RequestBody TicketService.requestAllTicket date){
 
         return ResponseEntity.ok(ticketService.getTicketByDay(date.getTrainNumber(), date.getDate()));
@@ -31,5 +39,10 @@ public class TicketController {
         return ticketService.deleteTicket(id);
     }
 
+    @PostMapping("/getTicketByIdAndDay")
+    public ResponseEntity<?> getTickectByIdandDay(@RequestBody TicketService.RequestTicketPassengerDay requestTicketPassengerDay) throws ParseException {
+
+        return ticketService.getTicketByPassengerAndDay(requestTicketPassengerDay);
+    }
 
 }

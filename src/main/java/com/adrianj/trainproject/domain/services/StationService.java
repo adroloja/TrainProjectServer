@@ -2,6 +2,8 @@ package com.adrianj.trainproject.domain.services;
 
 import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class StationService {
 
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The station doesn´t exist");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The station doesn´t exist.\"}");
         }
     }
 
@@ -34,7 +36,7 @@ public class StationService {
         return ResponseEntity.ok(stationRepository.findAll());
     }
 
-    public ResponseEntity<?> updateStation(Station station){
+    public ResponseEntity<?> updateStation(Station station) throws JsonProcessingException {
 
         Optional<Station> optionalStation = stationRepository.findById(station.getId());
 
@@ -45,10 +47,10 @@ public class StationService {
 
             stationRepository.save(t);
 
-            return ResponseEntity.ok("Update completed");
+            return ResponseEntity.ok("{\"message\": \"Update completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The station doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The station doesn´t exist\"}");
         }
     }
 
@@ -58,12 +60,12 @@ public class StationService {
 
         if(optionalStation.isEmpty()){
 
-            stationRepository.save(optionalStation.get());
+            stationRepository.save(station);
 
             return ResponseEntity.ok(station);
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The station is already exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The station is already exist\"}");
         }
     }
 
@@ -75,10 +77,10 @@ public class StationService {
 
             stationRepository.delete(optionalStation.get());
 
-            return ResponseEntity.ok("Delete completed");
+            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The station doesn´t exist");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The station doesn´t exist\"}");
         }
     }
 

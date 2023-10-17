@@ -3,6 +3,7 @@ package com.adrianj.trainproject.domain.controller;
 import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
 import com.adrianj.trainproject.domain.services.StationService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class StationController {
     }
 
     @PutMapping("/updateStation")
-    public ResponseEntity<?> updateStation(@RequestBody Station station){
+    public ResponseEntity<?> updateStation(@RequestBody Station station) throws JsonProcessingException {
 
         return stationService.updateStation(station);
     }

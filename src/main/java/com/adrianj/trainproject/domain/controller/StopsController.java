@@ -20,6 +20,12 @@ public class StopsController {
         return ResponseEntity.ok(stopService.getStopsTrainFromStartTime(resquestgetStopsTrainFromStartTime.getTrainNumber(), resquestgetStopsTrainFromStartTime.getStartTime()));
     }
 
+    @PostMapping("/getStopsTrainsDay")
+    public ResponseEntity<?> getStopsTrainDay(@RequestBody StopService.ResquestgetStopsTrainFromStartTime resquestgetStopsTrainFromStartTime) throws ParseException {
+
+        return ResponseEntity.ok(stopService.getStopsTrainFromDay(resquestgetStopsTrainFromStartTime.getTrainNumber(), resquestgetStopsTrainFromStartTime.getStartTime()));
+    }
+
     @DeleteMapping("/deleteStops/{id}")
     public ResponseEntity<?> deleteStops(@PathVariable long id){
 
@@ -33,8 +39,14 @@ public class StopsController {
     }
 
     @PostMapping("/createStops")
-    public ResponseEntity<?> createStops(@RequestBody Stops stops){
+    public ResponseEntity<?> createStops(@RequestBody StopService.RequestCreateStop requestCreateStop) throws ParseException {
 
-        return stopService.createStop(stops);
+        return stopService.createStop(requestCreateStop);
+    }
+
+    @GetMapping("/getAllStops")
+    public ResponseEntity<?> getAllStops(){
+
+        return stopService.getAllStops();
     }
 }
