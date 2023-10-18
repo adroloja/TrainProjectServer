@@ -16,6 +16,12 @@ public interface TicketRepository extends CrudRepository<Ticket, Long> {
 
     Optional<Ticket> findByPassenger(Passenger passenger);
 
+    @Query("select  u from Ticket  u where u.startStops.trainStops.number = :trainNumber and u.passenger.id = :idPassenger and u.startStops.time between :startDate and :endDate")
+    Optional<Ticket> getRegistredPassengerDayTrain(@Param("trainNumber") int trainNumber,
+                                                   @Param("idPassenger") long idPassenger,
+                                                   @Param("startDate") Date startDate,
+                                                   @Param("endDate") Date endDate);
+
     @Query("SELECT u FROM Ticket u WHERE DATE(u.startStops.time) = STR_TO_DATE(:date, '%d/%m/%Y')")
     Optional<List<Ticket>> getTicketByDay(@Param("date") String date);
 

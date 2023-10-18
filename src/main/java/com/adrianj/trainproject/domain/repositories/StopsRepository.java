@@ -12,8 +12,11 @@ import java.util.Optional;
 
 public interface StopsRepository extends CrudRepository<com.adrianj.trainproject.domain.entities.Stops, Long> {
 
-    @Query("select u from Stops u where u.stationStop.id = :station_id")
-    Optional<List<Stops>> getOneStationTrainStopById(@Param("station_id") long stationId);
+    @Query("select u from Stops u where u.stationStop.id = :station_id and u.trainStops.number = :trainNumber and u.time between :startDate and :endDate")
+    Optional<Stops> getOneStationTrainStopById(@Param("station_id") long stationId,
+                                               @Param("trainNumber") int trainNumber,
+                                               @Param("startDate") Date startDate,
+                                               @Param("endDate") Date endDate);
 
     @Query("select u from Stops u where u.stationStop.name = :stationName")
     Optional<List<Stops>> getStopsStationByName(@Param("stationName") String stationName);

@@ -22,6 +22,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @RestController
@@ -64,11 +65,27 @@ public class BuyTicket {
         //
 
         Passenger passenger = passengerRepository.findById(requestBuyTicket.getIdPassenger()).get();
+        Date startDateTime = startStops.getTime();
+        Date endTime = startStops.getTime();
+        startDateTime.setHours(0);
+        startDateTime.setMinutes(0);
 
+        endTime.setHours(23);
+        endTime.setSeconds(59);
+        List<Ticket> listPassengerTrain = ticketRepository.getListPassenger(requestBuyTicket.getTrainNumber(), startDateTime, endTime ).get();
+
+        Optional<Ticket> optionalTicketticket = ticketRepository.getRegistredPassengerDayTrain(requestBuyTicket.trainNumber, requestBuyTicket.idPassenger, startDateTime, endTime);
+
+        if(optionalTicketticket.isPresent()){
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The passenger is already registred in this train. Thanks");
+
+        }
         boolean registred = false;
 
-        for (Ticket t : tickets) {
+        for (Ticket t : listPassengerTrain) {
 
+            System.out.println(t);
             if (t.getPassenger().getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
 
                 registred = true;
