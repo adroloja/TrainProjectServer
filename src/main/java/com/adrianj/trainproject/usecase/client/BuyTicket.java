@@ -65,27 +65,29 @@ public class BuyTicket {
         //
 
         Passenger passenger = passengerRepository.findById(requestBuyTicket.getIdPassenger()).get();
-        Date startDateTime = startStops.getTime();
-        Date endTime = startStops.getTime();
+        Date startDateTime = new Date();
+        Date endTime = new Date();
+
+        startDateTime.setTime(startStops.getTime().getTime());
         startDateTime.setHours(0);
         startDateTime.setMinutes(0);
 
+        endTime.setTime(startDateTime.getTime());
         endTime.setHours(23);
-        endTime.setSeconds(59);
+        endTime.setMinutes(59);
+
         List<Ticket> listPassengerTrain = ticketRepository.getListPassenger(requestBuyTicket.getTrainNumber(), startDateTime, endTime ).get();
 
-        Optional<Ticket> optionalTicketticket = ticketRepository.getRegistredPassengerDayTrain(requestBuyTicket.trainNumber, requestBuyTicket.idPassenger, startDateTime, endTime);
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("dd/MM/yyyy");
 
-        if(optionalTicketticket.isPresent()){
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The passenger is already registred in this train. Thanks");
+        Optional<List<Ticket>> optionalTicketticket = ticketRepository.getTicketByDayAndTrain(requestBuyTicket.trainNumber, requestBuyTicket.getIdPassenger() ,
+                simpleDateFormat1.format(startDateTime));
 
-        }
         boolean registred = false;
 
-        for (Ticket t : listPassengerTrain) {
+        for (Ticket t : optionalTicketticket.get()) {
 
-            System.out.println(t);
             if (t.getPassenger().getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
 
                 registred = true;
