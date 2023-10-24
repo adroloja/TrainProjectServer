@@ -1,171 +1,68 @@
 package com.adrianj.trainproject.domain;
 
-import com.adrianj.trainproject.domain.entities.*;
-import com.adrianj.trainproject.domain.repositories.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.security.Key;
-import java.util.Base64;
-import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-@Service
+@Component
 public class DataInitializer {
 
-    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
-    private PassengerRepository passengerRepository;
-    private ScheduleRepository scheduleRepository;
-    private StationRepository stationRepository;
-    private StopsRepository stopsRepository;
-    private TicketRepository ticketRepository;
-    private TrainRepository trainRepository;
+    private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public DataInitializer(PassengerRepository passengerRepository, ScheduleRepository scheduleRepository,
-                           StationRepository stationRepository, StopsRepository stopsRepository, TicketRepository ticketRepository,
-                           TrainRepository trainRepository) {
-
-        this.passengerRepository = passengerRepository;
-        this.scheduleRepository = scheduleRepository;
-        this.stationRepository = stationRepository;
-        this.stopsRepository = stopsRepository;
-        this.ticketRepository = ticketRepository;
-        this.trainRepository = trainRepository;
+    public DataInitializer(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
+    @PostConstruct()
+    public void initializeData() {
 
-    @PostConstruct
-    public void run() throws IOException {
+        String sqlPassenger = "INSERT INTO passenger (name, surname, date_birth, username, password, employe) VALUES " +
+                "('Adri', 'Jaimez', '1990-01-01', 'adroyoyo', '1234', true), " +
+                "('Adela', 'Jaimez', '2023-01-01', 'adelaj', '1234', false), " +
+                "('Maria', 'Díaz', '1990-01-01', 'mariad', '1234', false)";
 
-        /*
+        jdbcTemplate.execute(sqlPassenger);
 
-        // Generator secret key
-        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-        String secret = Base64.getEncoder().encodeToString(key.getEncoded());
-        System.out.println("jwt.secret=" + secret);
-         */
+        String insertStationsSql = "INSERT INTO station (name) VALUES " +
+                "('Málaga'), " +
+                "('Granada'), " +
+                "('Sevilla')";
 
-        logger.info("Starting data storage");
-        ObjectMapper objectMapper = new ObjectMapper();
-        String dataJson = Files.readString(Path.of("src/main/resources/Mock-data/data.json"));
-        MockData mockData = objectMapper.readValue(dataJson,MockData.class);
+        jdbcTemplate.execute(insertStationsSql);
 
-        if(passengerRepository.count() > 0){
+        String insertTrainsSql = "INSERT INTO train (number, seats) VALUES " +
+                "(1, 100), " +
+                "(2, 120), " +
+                "(3, 130)";
 
-            logger.info("Data is already defined");
-            return;
-        }
+        jdbcTemplate.execute(insertTrainsSql);
 
-        // Adding passenger
-        for(Passenger p : mockData.getPassengers()){
+        String insertScheduleSql = "INSERT INTO schedule (train_id)" +
+                "VALUES" +
+                "    (1);";
 
-            passengerRepository.save(p);
-        }
+        jdbcTemplate.execute(insertScheduleSql);
 
-        // Adding Station
+        String insertStopsesSql = "INSERT INTO stops (station_id, train_id, schedule_id, time) VALUES " +
+                "(1, 1, 1, '2023-10-08 10:30:00'), " +
+                "(2, 1, 1, '2023-10-08 11:30:00'), " +
+                "(3, 1, 1, '2023-10-08 12:30:00')";
 
-        for(Station s : mockData.getStations()){
+        jdbcTemplate.execute(insertStopsesSql);
 
-            stationRepository.save(s);
-        }
+        String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id)" +
+                "VALUES " +
+                "  (1, 3, 2)," +
+                "  (2, 3, 3)," +
+                "  (1, 2, 1);";
 
-        // Adding train
-
-        for(Train t : mockData.getTrains()){
-
-            trainRepository.save(t);
-        }
-
-        // Adding schedule
-
-        for(Schedule s : mockData.getSchedules()){
-
-            scheduleRepository.save(s);
-        }
-
-        // Adding stops
-        for(Stops s : mockData.getStopses()){
-
-            stopsRepository.save(s);
-        }
-
-        // Adding ticket
-        for(Ticket t : mockData.getTickets()){
-
-            ticketRepository.save(t);
-        }
+        jdbcTemplate.execute(insertTicket);
 
 
-
-
-
-
-    }
-
-    private static class MockData {
-
-        private List<Passenger> passengers;
-        private List<Schedule> schedules;
-        private List<Station> stations;
-        private List<Stops> stopses;
-        private List<Ticket> tickets;
-        private List<Train> trains;
-
-        public List<Passenger> getPassengers() {
-            return passengers;
-        }
-
-        public void setPassengers(List<Passenger> passengers) {
-            this.passengers = passengers;
-        }
-
-        public List<Schedule> getSchedules() {
-            return schedules;
-        }
-
-        public void setSchedules(List<Schedule> schedules) {
-            this.schedules = schedules;
-        }
-
-        public List<Station> getStations() {
-            return stations;
-        }
-
-        public void setStations(List<Station> stations) {
-            this.stations = stations;
-        }
-
-        public List<Stops> getStopses() {
-            return stopses;
-        }
-
-        public void setStopses(List<Stops> stopses) {
-            this.stopses = stopses;
-        }
-
-        public List<Ticket> getTickets() {
-            return tickets;
-        }
-
-        public void setTickets(List<Ticket> tickets) {
-            this.tickets = tickets;
-        }
-
-        public List<Train> getTrains() {
-            return trains;
-        }
-
-        public void setTrains(List<Train> trains) {
-            this.trains = trains;
-        }
     }
 }

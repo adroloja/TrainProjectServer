@@ -25,30 +25,3 @@ public class SingUp {
 
       return passengerService.createPassenger(passenger);    }
 }
-
-/*
-  Optional<Passenger> optionalPassenger = passengerRepository.findByUsername(passenger.getUsername());
-
-        if(optionalPassenger.isEmpty()){
-
-            passengerRepository.save(passenger);
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            String response;
-
-            try{
-
-                response = objectMapper.writeValueAsString(passenger);
-
-            } catch (JsonProcessingException e) {
-
-                return ResponseEntity.status(500).body("Error to convert the passenger to Json");
-            }
-
-            return ResponseEntity.ok(response);
-
-        }else{
-
-            return  ResponseEntity.ok("The username is already exist. Please try another username");
-        }
- */

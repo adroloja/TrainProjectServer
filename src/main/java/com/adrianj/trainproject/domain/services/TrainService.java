@@ -1,6 +1,8 @@
 package com.adrianj.trainproject.domain.services;
 
+import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.entities.Stops;
+import com.adrianj.trainproject.domain.entities.Ticket;
 import com.adrianj.trainproject.domain.entities.Train;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
@@ -97,7 +99,7 @@ public class TrainService {
         Date startDate = Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant());
         Date endDate = Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant());
 
-        System.out.println(requestSearchTrain.toString());
+        //System.out.println(requestSearchTrain.toString());
         Optional<List<Stops>> optionalStopsList = stopsRepository.getTrainsPassingBetweenStations(requestSearchTrain.getStationId1(), requestSearchTrain.getStationId2(),
                 startDate, endDate);
 
@@ -105,14 +107,42 @@ public class TrainService {
 
             List<Stops> stopsList = optionalStopsList.get();
 
-            List<Train> trainList = new ArrayList<>();
+            List<Stops> result = new ArrayList<>();
+            List<Ticket> tickets = new ArrayList<>();
 
             for(Stops s : stopsList){
 
-                trainList.add(s.getTrainStops());
+                int dateStart;
+
+                if(s.getStationStop().getId() == requestSearchTrain.getStationId1()){
+
+                    long trainId = s.getTrainStops().getId();
+
+                    dateStart = s.getTime().getDay();
+
+                    stopsList.forEach(n -> {
+
+                        if(n.getTime().getDay() == dateStart && n.getStationStop().getId() == requestSearchTrain.getStationId2() && n.getTrainStops().getId() == trainId){
+
+                            if(!result.contains(n)){
+
+
+                                result.add(s);
+                                result.add(n);
+
+                                Ticket t = new Ticket();
+                                t.setEndStops(n);
+                                t.setStartStops(s);
+
+                                tickets.add(t);
+
+                            }
+                        }
+                    });
+                }
             }
 
-            return ResponseEntity.ok(stopsList);
+            return ResponseEntity.ok(tickets);
         }
 
         return ResponseEntity.ok("ok");

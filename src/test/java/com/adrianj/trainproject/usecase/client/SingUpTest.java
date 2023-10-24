@@ -2,6 +2,7 @@ package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.domain.entities.Passenger;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
+import com.adrianj.trainproject.domain.services.PassengerService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,9 +23,8 @@ class SingUpTest {
 
     @Mock
     private PassengerRepository passengerRepository;
-
     @InjectMocks
-    private SingUp singUp;
+    private PassengerService passengerService;
 
     private Passenger passenger;
     @BeforeEach
@@ -41,26 +41,17 @@ class SingUpTest {
 
         when(passengerRepository.findByUsername(passenger.getUsername())).thenReturn(Optional.empty());
 
-        ResponseEntity<?> response = singUp.registrer(passenger);
+        ResponseEntity<?> response = passengerService.createPassenger(passenger);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
-      /*
-        try{
-            Passenger responsePassenger = new ObjectMapper().readValue(response.getBody(), Passenger.class);
-            assertEquals(passenger.getUsername(), responsePassenger.getUsername());
-            assertEquals(passenger.getPassword(), responsePassenger.getPassword());
-        } catch (JsonProcessingException  e) {
-           fail("Error parsing response body");
-        }
-       */
 
         // User existing
 
         when(passengerRepository.findByUsername(passenger.getUsername())).thenReturn(Optional.of(passenger));
 
-        response = singUp.registrer(passenger);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        response = passengerService.createPassenger(passenger);
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
         assertEquals("The username is already exist. Please try another username", response.getBody());
     }
 }

@@ -22,6 +22,11 @@ public class TicketService {
 
     private final TicketRepository ticketRepository;
 
+    public List<Ticket> getTicketById(long id){
+
+        return ticketRepository.getTicketsListByIdPassenger(id).get();
+    }
+
     public List<Ticket> getTicketByDay(int trainNumber, String date){
 
         List<Ticket> tickets = ticketRepository.getTicketByDay(date).get();

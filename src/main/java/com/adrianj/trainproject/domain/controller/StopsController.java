@@ -26,6 +26,11 @@ public class StopsController {
         return ResponseEntity.ok(stopService.getStopsTrainFromDay(resquestgetStopsTrainFromStartTime.getTrainNumber(), resquestgetStopsTrainFromStartTime.getStartTime()));
     }
 
+    @PostMapping("/getStopsFromTimeStation")
+    public ResponseEntity<?> getStopsFromTimeStation(@RequestBody StopService.RequestSearchTrain request) throws ParseException{
+
+        return ResponseEntity.ok(stopService.getStopsFromAStationStopTime(request.getStationId1(), request.getStationId2(), request.getStartTime(), request.getEndTime()));
+    }
     @DeleteMapping("/deleteStops/{id}")
     public ResponseEntity<?> deleteStops(@PathVariable long id){
 

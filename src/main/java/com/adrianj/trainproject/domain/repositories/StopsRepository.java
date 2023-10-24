@@ -39,6 +39,4 @@ public interface StopsRepository extends CrudRepository<com.adrianj.trainproject
                                                      @Param("startTime") Date startTime,
                                                      @Param("endTime") Date endTime);
 
-
-
 }

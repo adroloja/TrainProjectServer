@@ -16,6 +16,9 @@ public interface TicketRepository extends CrudRepository<Ticket, Long> {
 
     Optional<Ticket> findByPassenger(Passenger passenger);
 
+    @Query("select u from Ticket u where u.passenger.id = :idPassenger")
+    Optional<List<Ticket>> getTicketsListByIdPassenger(@Param("idPassenger") long id);
+
     @Query("select  u from Ticket  u where u.startStops.trainStops.number = :trainNumber and u.passenger.id = :idPassenger and u.startStops.time between :startDate and :endDate")
     Optional<Ticket> getRegistredPassengerDayTrain(@Param("trainNumber") int trainNumber,
                                                    @Param("idPassenger") long idPassenger,

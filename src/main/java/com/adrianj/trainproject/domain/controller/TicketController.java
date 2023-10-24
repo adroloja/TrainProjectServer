@@ -4,6 +4,7 @@ import com.adrianj.trainproject.domain.entities.Ticket;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.services.TicketService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,6 +44,12 @@ public class TicketController {
     public ResponseEntity<?> getTickectByIdandDay(@RequestBody TicketService.RequestTicketPassengerDay requestTicketPassengerDay) throws ParseException {
 
         return ticketService.getTicketByPassengerAndDay(requestTicketPassengerDay);
+    }
+
+    @GetMapping("/getTicket/{id}")
+    public ResponseEntity<?> getTicketById(@PathVariable long id){
+
+        return ResponseEntity.ok(ticketService.getTicketById(id));
     }
 
 }

@@ -35,7 +35,6 @@ public class BuyTicket {
     private final StopsRepository stopsRepository;
     private final TicketService ticketService;
 
-
     @PostMapping("/buyTicket")
     public ResponseEntity<?> buy(@RequestBody RequestBuyTicket requestBuyTicket) throws ParseException {
 

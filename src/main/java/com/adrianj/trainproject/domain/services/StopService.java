@@ -15,6 +15,10 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -69,6 +73,28 @@ public class StopService {
         return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).get();
     }
 
+    public List<Stops> getStopsFromAStationStopTime(long idStationA,  long idStationB, LocalDateTime startTimeS, LocalDateTime endTimeS) throws ParseException {
+
+        LocalDateTime startTime = startTimeS.plus(2, ChronoUnit.HOURS);
+        LocalDateTime endTime = endTimeS.plus(2, ChronoUnit.HOURS);
+
+        Date startDate = Date.from(startTime.atZone(ZoneId.systemDefault()).toInstant());
+        Date endDate = Date.from(endTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        List<Stops> result = new ArrayList<>();
+        List<Stops> optionalStopsList = stopsRepository.getTrainsPassingBetweenStations(idStationA, idStationB,
+                startDate, endDate).get();
+
+        optionalStopsList.forEach(n -> {
+
+            if(n.getStationStop().getId() == idStationB){
+                result.add(n);
+            }
+        });
+
+        return optionalStopsList;
+    }
+
     public ResponseEntity<?> createStop(RequestCreateStop requestCreateStop) throws ParseException {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm");
@@ -101,6 +127,8 @@ public class StopService {
                 stops.setStationStop(station);
                 stops.setSchedule(schedule);
                 stops.setTrainStops(train);
+
+                date.setHours(date.getHours() + 2);
                 stops.setTime(date);
 
                 stopsRepository.save(stops);
@@ -181,10 +209,22 @@ public class StopService {
         }
     }
 
+
+
     public static class ResquestgetStopsTrainFromStartTime {
 
         private int trainNumber;
         private String startTime;
+
+        private long idStationA;
+
+        public long getIdStationA() {
+            return idStationA;
+        }
+
+        public void setIdStationA(long idStationA) {
+            this.idStationA = idStationA;
+        }
 
         public int getTrainNumber() {
             return trainNumber;
@@ -200,6 +240,45 @@ public class StopService {
 
         public void setStartTime(String startTime) {
             this.startTime = startTime;
+        }
+    }
+    public static class RequestSearchTrain {
+
+        private long stationId1;
+        private long stationId2;
+        private LocalDateTime startTime;
+        private LocalDateTime endTime;
+
+        public long getStationId1() {
+            return stationId1;
+        }
+
+        public void setStationId1(long stationId1) {
+            this.stationId1 = stationId1;
+        }
+
+        public long getStationId2() {
+            return stationId2;
+        }
+
+        public void setStationId2(long stationId2) {
+            this.stationId2 = stationId2;
+        }
+
+        public LocalDateTime getStartTime() {
+            return startTime;
+        }
+
+        public void setStartTime(LocalDateTime startTime) {
+            this.startTime = startTime;
+        }
+
+        public LocalDateTime getEndTime() {
+            return endTime;
+        }
+
+        public void setEndTime(LocalDateTime endTime) {
+            this.endTime = endTime;
         }
     }
 
