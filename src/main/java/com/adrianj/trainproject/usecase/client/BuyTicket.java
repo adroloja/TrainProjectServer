@@ -136,6 +136,7 @@ public class BuyTicket {
         ticket.setPassenger(passenger);
         ticket.setStartStops(startStops);
         ticket.setEndStops(endStops);
+        ticket.setSeat(numberPassenger + 1);
 
         ticketRepository.save(ticket);
 

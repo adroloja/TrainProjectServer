@@ -69,7 +69,7 @@ public class TicketService {
 
             ticketRepository.delete(ticketRepository.findById(id).get());
 
-            return ResponseEntity.ok("Delete completed");
+            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{
 
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The ticket doesn´t exist.");

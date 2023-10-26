@@ -55,6 +55,24 @@ public class StopService {
         return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).get();
     }
 
+    public List<Stops> getStopsAllTrainByDay(String startTimeS) throws ParseException{
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+        Date endTime = simpleDateFormat.parse(startTimeS);
+        Date startTime = new Date(endTime.getTime());
+
+        endTime.setHours(23);
+        endTime.setMinutes(59);
+        endTime.setSeconds(59);
+
+        startTime.setHours(0);
+        startTime.setMinutes(0);
+        startTime.setSeconds(0);
+
+        return this.stopsRepository.getStopsAllTrainByDay(startTime, endTime).orElseThrow();
+    }
+
     public List<Stops> getStopsTrainFromDay(int trainNumber, String startTimeS) throws ParseException {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -160,11 +178,11 @@ public class StopService {
 
             stopsRepository.delete(optionalStops.get());
 
-            return ResponseEntity.ok("Delete completed");
+            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
 
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The stops doesn´t exist.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The stops doesn´t exist.\"}");
 
         }
     }

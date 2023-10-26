@@ -1,11 +1,14 @@
 package com.adrianj.trainproject.domain;
 
+import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 
@@ -13,13 +16,34 @@ import javax.annotation.PostConstruct;
 public class DataInitializer {
 
     private final JdbcTemplate jdbcTemplate;
+    private PassengerRepository passengerRepository;
+    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
+
 
     @Autowired
-    public DataInitializer(JdbcTemplate jdbcTemplate) {
+    public DataInitializer(JdbcTemplate jdbcTemplate, PassengerRepository passengerRepository) {
+
+        this.passengerRepository = passengerRepository;
         this.jdbcTemplate = jdbcTemplate;
     }
     @PostConstruct()
     public void initializeData() {
+
+        /*
+
+        // Generator secret key
+        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+        String secret = Base64.getEncoder().encodeToString(key.getEncoded());
+        System.out.println("jwt.secret=" + secret);
+         */
+
+        if(passengerRepository.count() > 0){
+
+            logger.info("Data is already defined");
+            return;
+        }
+
+        logger.info("Data initializer ON");
 
         String sqlPassenger = "INSERT INTO passenger (name, surname, date_birth, username, password, employe) VALUES " +
                 "('Adri', 'Jaimez', '1990-01-01', 'adroyoyo', '1234', true), " +
@@ -55,11 +79,11 @@ public class DataInitializer {
 
         jdbcTemplate.execute(insertStopsesSql);
 
-        String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id)" +
+        String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id, seat)" +
                 "VALUES " +
-                "  (1, 3, 2)," +
-                "  (2, 3, 3)," +
-                "  (1, 2, 1);";
+                "  (1, 3, 2, 1)," +
+                "  (2, 3, 3, 2)," +
+                "  (1, 2, 1, 3);";
 
         jdbcTemplate.execute(insertTicket);
 

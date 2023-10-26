@@ -31,6 +31,8 @@ public class Ticket {
     @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
+    private int seat;
+
 
 }
 

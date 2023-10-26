@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -27,9 +24,21 @@ public class ScheduleController {
     }
 
     @PostMapping("/insertSchedule")
-    public ResponseEntity<?> insertSchedule(@RequestBody Schedule schedule){
+    public ResponseEntity<?> insertSchedule(@RequestBody ScheduleService.ScheduleInsert_DTO schedule){
 
         return scheduleService.insertSchedule(schedule);
+    }
+
+    @PutMapping("/updateSchedule")
+    public ResponseEntity<?> updateSchedule(@RequestBody ScheduleService.ScheduleUpdate_DTO request){
+
+        return scheduleService.updateSchedule(request);
+    }
+
+    @DeleteMapping("/deleteSchedule/{id}")
+    public ResponseEntity<?> deleteSchedule(@PathVariable long id){
+
+        return scheduleService.deleteSchedule(id);
     }
 
 }
