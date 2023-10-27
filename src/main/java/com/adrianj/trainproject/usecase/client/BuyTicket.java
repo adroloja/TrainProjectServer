@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -42,12 +43,32 @@ public class BuyTicket {
         // Firstly, Check max seats and if there are available some seats.
         //
 
-        Train train = trainRepository.findByNumber(requestBuyTicket.getTrainNumber()).get();
-        int maxSeat = train.getSeats();
+        Train train;
+        int maxSeat;
+        Optional<Train> optionalTrain = trainRepository.findByNumber(requestBuyTicket.getTrainNumber());
+        if(optionalTrain.isPresent()){
 
-        Stops startStops = stopsRepository.findById(requestBuyTicket.getIdStartStops()).get();
+            train = optionalTrain.get();
+            maxSeat = train.getSeats();
 
-        Date time = startStops.getTime();
+        }else{
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The train doesn´t exist. Thanks.");
+        }
+
+        Stops startStops;
+        Date time;
+        Optional<Stops> optionalStops = stopsRepository.findById(requestBuyTicket.getIdStartStops());
+        if(optionalStops.isPresent()){
+
+            startStops = optionalStops.get();
+            time = startStops.getTime();
+        }else{
+
+            return ResponseEntity.status(HttpStatus.MULTI_STATUS).body("The stop doesn´t exist. Thanks.");
+        }
+
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String formatDate = simpleDateFormat.format(time);
 
@@ -57,13 +78,21 @@ public class BuyTicket {
 
         // If there aren´t available seats
         if (numberPassenger >= maxSeat)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("No available seats. Thanks");
+            return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body("No available seats. Thanks");
 
         //
         // Secondly, Check if the passenger is already registred.
         //
 
-        Passenger passenger = passengerRepository.findById(requestBuyTicket.getIdPassenger()).get();
+        Passenger passenger;
+        Optional<Passenger> optionalPassenger = passengerRepository.findById(requestBuyTicket.getIdPassenger());
+        if(optionalPassenger.isPresent()){
+
+            passenger = optionalPassenger.get();
+        }else{
+
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("The passenger doesn´t exist. Thanks.");
+        }
         Date startDateTime = new Date();
         Date endTime = new Date();
 
@@ -83,9 +112,15 @@ public class BuyTicket {
         Optional<List<Ticket>> optionalTicketticket = ticketRepository.getTicketByDayAndTrain(requestBuyTicket.trainNumber, requestBuyTicket.getIdPassenger() ,
                 simpleDateFormat1.format(startDateTime));
 
+        List<Ticket> ticketList = new ArrayList<>();
+        if(optionalTicketticket.isPresent()){
+
+            ticketList = optionalTicketticket.get();
+        }
+
         boolean registred = false;
 
-        for (Ticket t : optionalTicketticket.get()) {
+        for (Ticket t : ticketList) {
 
             if (t.getPassenger().getId() == passenger.getId()) {     // I have not checked another field like birth, name, etc. because se object Passenger is the same in this case.
 
@@ -130,19 +165,26 @@ public class BuyTicket {
         // If all is OK, create the ticket
         //
 
-        Stops endStops = stopsRepository.findById(requestBuyTicket.getIdEndStops()).get();
-
+        Stops endStops;
         Ticket ticket = new Ticket();
-        ticket.setPassenger(passenger);
-        ticket.setStartStops(startStops);
-        ticket.setEndStops(endStops);
-        ticket.setSeat(numberPassenger + 1);
+        Optional<Stops> optionalStops1 = stopsRepository.findById(requestBuyTicket.getIdEndStops());
+        if(optionalStops1.isPresent()){
+
+            endStops = optionalStops1.get();
+            ticket.setPassenger(passenger);
+            ticket.setStartStops(startStops);
+            ticket.setEndStops(endStops);
+            ticket.setSeat(numberPassenger + 1);
+
+        }else{
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The Passenger doesn´t exist. Thanks.");
+        }
 
         ticketRepository.save(ticket);
 
         return ResponseEntity.ok(ticket);
     }
-    private static class RequestBuyTicket{
+    public static class RequestBuyTicket{
 
         private int trainNumber;
         private long idStartStops;
@@ -179,6 +221,16 @@ public class BuyTicket {
 
         public void setIdPassenger(long idPassenger) {
             this.idPassenger = idPassenger;
+        }
+
+        @Override
+        public String toString() {
+            return "RequestBuyTicket{" +
+                    "trainNumber=" + trainNumber +
+                    ", idStartStops=" + idStartStops +
+                    ", idEndStops=" + idEndStops +
+                    ", idPassenger=" + idPassenger +
+                    '}';
         }
     }
 

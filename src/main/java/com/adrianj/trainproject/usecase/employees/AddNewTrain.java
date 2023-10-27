@@ -26,19 +26,3 @@ public class AddNewTrain {
         return trainService.createTrain(train);
     }
 }
-
-
-/*
-
- Optional<Train> optionalTrain = trainRepository.findByNumber(train.getNumber());
-
-        if(optionalTrain.isEmpty()){
-
-            trainRepository.save(train);
-
-            return ResponseEntity.ok("ok");
-        }else {
-
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error, the number train already exists.");
-        }
- */

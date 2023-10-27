@@ -22,8 +22,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CheckStationTrainSchedule {
 
-   private final StopsRepository stopsRepository;
-   private final StationRepository stationRepository;
    private final TrainService trainService;
 
     @PostMapping("/checktrain")
