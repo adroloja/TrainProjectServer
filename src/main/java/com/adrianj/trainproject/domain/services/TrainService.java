@@ -4,6 +4,7 @@ import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.entities.Stops;
 import com.adrianj.trainproject.domain.entities.Ticket;
 import com.adrianj.trainproject.domain.entities.Train;
+import com.adrianj.trainproject.domain.exception.ResourceNotFoundException;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import lombok.RequiredArgsConstructor;
@@ -157,8 +158,6 @@ public class TrainService {
     public ResponseEntity<?> getStationStopsByDay(TrainRequest trainRequest) throws ParseException {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        SimpleDateFormat fullsimpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
         Date date = simpleDateFormat.parse(trainRequest.getDay());
 
         date.setHours(0);
@@ -171,7 +170,7 @@ public class TrainService {
         date1.setMinutes(59);
         date1.setSeconds(59);
 
-        return ResponseEntity.ok(this.stopsRepository.getListStopStationWithTime(trainRequest.getName(), date, date1).get());
+        return ResponseEntity.ok(this.stopsRepository.getListStopStationWithTime(trainRequest.getName(), date, date1).orElseThrow( () -> new ResourceNotFoundException("There isn´t any Stop for this time.")));
     }
 
     public static class TrainRequest{

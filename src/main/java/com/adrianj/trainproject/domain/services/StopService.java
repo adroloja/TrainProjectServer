@@ -4,6 +4,7 @@ import com.adrianj.trainproject.domain.entities.Schedule;
 import com.adrianj.trainproject.domain.entities.Station;
 import com.adrianj.trainproject.domain.entities.Stops;
 import com.adrianj.trainproject.domain.entities.Train;
+import com.adrianj.trainproject.domain.exception.ResourceNotFoundException;
 import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.StationRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
@@ -52,7 +53,7 @@ public class StopService {
         startTime.setHours(startTime.getHours() + 2);
         startTime.setMinutes(startTime.getMinutes() + 1);
 
-        return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).get();
+        return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).orElseThrow(() -> new ResourceNotFoundException("There isn´t any Stop for this date."));
     }
 
     public List<Stops> getStopsAllTrainByDay(String startTimeS) throws ParseException{
@@ -70,7 +71,7 @@ public class StopService {
         startTime.setMinutes(0);
         startTime.setSeconds(0);
 
-        return this.stopsRepository.getStopsAllTrainByDay(startTime, endTime).orElseThrow();
+        return this.stopsRepository.getStopsAllTrainByDay(startTime, endTime).orElseThrow( () -> new ResourceNotFoundException("There isn´t any Stop for this day."));
     }
 
     public List<Stops> getStopsTrainFromDay(int trainNumber, String startTimeS) throws ParseException {
@@ -88,7 +89,7 @@ public class StopService {
         startTime.setMinutes(0);
         startTime.setSeconds(0);
 
-        return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).get();
+        return stopsRepository.getStopsTrainFromStartTime(trainNumber, startTime, endTime).orElseThrow( () -> new ResourceNotFoundException("There isn´t any Stop from this day."));
     }
 
     public List<Stops> getStopsFromAStationStopTime(long idStationA,  long idStationB, LocalDateTime startTimeS, LocalDateTime endTimeS) throws ParseException {
@@ -101,7 +102,7 @@ public class StopService {
 
         List<Stops> result = new ArrayList<>();
         List<Stops> optionalStopsList = stopsRepository.getTrainsPassingBetweenStations(idStationA, idStationB,
-                startDate, endDate).get();
+                startDate, endDate).orElseThrow( () -> new ResourceNotFoundException("There isn´t any Stop for this time."));
 
         optionalStopsList.forEach(n -> {
 
@@ -127,7 +128,7 @@ public class StopService {
         Optional<List<Stops>> optionalStops = Optional.of((List<Stops>) stopsRepository.findAll());
 
             AtomicBoolean exist = new AtomicBoolean(false);
-            List<Stops> stopsList = optionalStops.get();
+            List<Stops> stopsList = optionalStops.orElseThrow( () -> new ResourceNotFoundException("There isn´t any Stop."));
             stopsList.forEach(stop -> {
                 if(stop.getTrainStops().getNumber() == train.getNumber() && stop.getStationStop().getName().equals(station.getName())
                         && stop.getTime().equals(date)){

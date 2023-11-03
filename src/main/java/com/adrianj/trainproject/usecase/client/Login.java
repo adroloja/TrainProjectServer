@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +23,7 @@ public class Login {
 
     private final PassengerRepository passengerRepository;
     private final JwtUtils jwtUtils;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/login")
     public ResponseEntity<?> getLogin(@RequestBody Passenger passenger){
@@ -32,10 +34,11 @@ public class Login {
 
             Passenger passenger1 = optionalPassenger.get();
 
-            if(passenger.getPassword().equals(passenger1.getPassword())){
+            if(bCryptPasswordEncoder.matches(passenger.getPassword(), passenger1.getPassword())){
                 String token = jwtUtils.generateToken(passenger1.getUsername());
 
                 UserDto userDto = new UserDto();
+                passenger1.setPassword(passenger.getPassword());
                 userDto.setPassenger(passenger1);
                 userDto.setToken(token);
 

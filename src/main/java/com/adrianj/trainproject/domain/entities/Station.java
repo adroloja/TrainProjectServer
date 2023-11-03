@@ -22,13 +22,5 @@ public class Station {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-
-/*
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "stationStop")
-    private List<Stops> stops;
-
- */
-
+    
 }

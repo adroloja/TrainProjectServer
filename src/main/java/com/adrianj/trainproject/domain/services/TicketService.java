@@ -106,15 +106,11 @@ public class TicketService {
         date.setMinutes(0);
         date.setSeconds(0);
 
-        String startDate = fullsimpleDateFormat.format(date);
-
         Date date1 = simpleDateFormat.parse(requestGetPassengerTrain.getDay());
 
         date1.setHours(23);
         date1.setMinutes(59);
         date1.setSeconds(59);
-
-        String endDate = fullsimpleDateFormat.format(date1);
 
         System.out.println("Train: " + requestGetPassengerTrain.getTrainNumber());
 

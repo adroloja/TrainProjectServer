@@ -1,6 +1,5 @@
 package com.adrianj.trainproject.usecase.client;
 
-import com.adrianj.trainproject.domain.controller.TicketController;
 import com.adrianj.trainproject.domain.entities.*;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;

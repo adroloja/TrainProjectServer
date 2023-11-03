@@ -146,12 +146,19 @@ public class BuyTicket {
         String startDay = simpleDateFormatDate.format(time);
         String startTime = simpleDateFormatTime.format(time);
 
+        System.out.println(startTime);
+        System.out.println(startTime);
+
         if (currentDate.equals(startDay)) {
 
             Date trainTime = simpleDateFormatTime.parse(startTime);
             Date currentTime = simpleDateFormatTime.parse(currentTimeString);
 
+            currentTime.setHours(currentTime.getHours() + 1);
+            trainTime.setHours(trainTime.getHours() - 1);
+
             long difference = Math.abs(trainTime.getTime() - currentTime.getTime());
+
 
             long diffMin = difference / (60 * 1000);
 

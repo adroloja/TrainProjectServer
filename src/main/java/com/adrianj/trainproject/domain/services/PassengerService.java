@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,12 +20,15 @@ public class PassengerService {
 
     private final PassengerRepository passengerRepository;
     private final JwtUtils jwtUtils;
-
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     public ResponseEntity<?> createPassenger(Passenger passenger){
 
         Optional<Passenger> optionalPassenger = passengerRepository.findByUsername(passenger.getUsername());
 
         if(optionalPassenger.isEmpty()){
+
+            String password = bCryptPasswordEncoder.encode(passenger.getPassword());
+            passenger.setPassword(password);
 
             passengerRepository.save(passenger);
 
@@ -42,8 +46,11 @@ public class PassengerService {
         if(optionalPassenger.isPresent()){
 
             Passenger passenger1 = optionalPassenger.get();
+            String pass = bCryptPasswordEncoder.encode(passenger.getPassword());
 
-            if(passenger.getPassword().equals(passenger1.getPassword())){
+            System.out.println(pass);
+            System.out.println(passenger1.getPassword());
+            if(bCryptPasswordEncoder.matches(pass, passenger1.getPassword())){
                 String token = jwtUtils.generateToken(passenger1.getUsername());
 
                 UserDto userDto = new UserDto();

@@ -23,14 +23,4 @@ public class Train {
     private int number;
     private int seats;
 
-/*
-    @JsonIgnore
-    @OneToMany(mappedBy = "trainStops")
-    private List<Stops> links;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "train")
-    private List<Schedule> scheduleList;
- */
-
 }
