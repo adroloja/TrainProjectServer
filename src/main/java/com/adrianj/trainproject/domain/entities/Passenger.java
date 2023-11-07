@@ -23,7 +23,11 @@ public class Passenger {
     private String dateBirth;
 
     private String username;
+    private String email;
     private String password;
+
+    private boolean validate;
+    private String validationToken;
 
     private boolean employe;
 

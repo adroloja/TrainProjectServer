@@ -52,37 +52,38 @@ public class DataInitializer {
 
         String pass1234 = encoder.encode("1234");
 
-        String sqlPassenger = "INSERT INTO passenger (name, surname, date_birth, username, password, employe) VALUES " +
-                "('Adri', 'Jaimez', '1990-01-01', 'adroyoyo', '" + pass1234 + "', true), " +
-                "('Adela', 'Jaimez', '2023-01-01', 'adelaj','" + pass1234 + "', false), " +
-                "('Maria', 'Díaz', '1990-01-01', 'mariad','" + pass1234 + "', false), " +
-                "('Juan', 'Gomez', '1985-05-12', 'juang','" + pass1234 + "', true), " +
-                "('Laura', 'Perez', '1988-08-20', 'laurap','" + pass1234 + "', false), " +
-                "('Carlos', 'Lopez', '1995-04-03', 'carlosl','" + pass1234 + "', true), " +
-                "('Sofia', 'Rodriguez', '1992-11-15', 'sofiar','" + pass1234 + "', false), " +
-                "('Andres', 'Martinez', '1987-03-28', 'andresm','" + pass1234 + "', true), " +
-                "('Elena', 'Sanchez', '1982-09-10', 'elenas','" + pass1234 + "', false), " +
-                "('Javier', 'Fernandez', '1980-06-07', 'javierf','" + pass1234 + "', true), " +
-                "('Paula', 'Garcia', '1998-02-25', 'paulag','" + pass1234 + "', false), " +
-                "('Antonio', 'Ramirez', '1975-10-18', 'antonior','" + pass1234 + "', true), " +
-                "('Ana', 'Torres', '1999-07-29', 'anat','" + pass1234 + "', false), " +
-                "('Pedro', 'Sanz', '1984-12-05', 'pedros','" + pass1234 + "', true), " +
-                "('Luisa', 'Lopez', '1996-06-17', 'luisal','" + pass1234 + "', false), " +
-                "('Raul', 'Gutierrez', '1979-04-30', 'raulg','" + pass1234 + "', true), " +
-                "('Carmen', 'Dominguez', '1991-03-14', 'carmed','" + pass1234 + "', false), " +
-                "('Pablo', 'Navarro', '1983-08-22', 'pablon','" + pass1234 + "', true), " +
-                "('Natalia', 'Ruiz', '1989-11-26', 'nataliar','" + pass1234 + "', false), " +
-                "('Hector', 'Jimenez', '1978-07-08', 'hectorj','" + pass1234 + "', true), " +
-                "('Marta', 'Ortega', '1994-09-02', 'martaor','" + pass1234 + "', false), " +
-                "('Daniel', 'Silva', '1981-05-19', 'daniels','" + pass1234 + "', true), " +
-                "('Eva', 'Moreno', '1986-01-03', 'evam','" + pass1234 + "', false), " +
-                "('Roberto', 'Castro', '1993-12-12', 'robertoc','" + pass1234 + "', true), " +
-                "('Isabel', 'Gomez', '1977-06-23', 'isabelg','" + pass1234 + "', false), " +
-                "('Victor', 'Hernandez', '1997-10-07', 'victorh','" + pass1234 + "', true), " +
-                "('Cristina', 'Molina', '1980-04-16', 'cristinam','" + pass1234 + "', false), " +
-                "('Ruben', 'Serrano', '1992-02-14', 'rubens','" + pass1234 + "', true), " +
-                "('Silvia', 'Rojas', '1976-12-28', 'silviar','" + pass1234 + "', false), " +
-                "('Miguel', 'Vargas', '1985-08-09', 'miguelv','" + pass1234 + "', true)";
+        String sqlPassenger = "INSERT INTO passenger (name, surname, date_birth, username, password, employe, email, validate) VALUES " +
+                "('Adri', 'Jaimez', '1990-01-01', 'adroyoyo', '" + pass1234 + "', true, 'adroloja@gmail.com', true), " +
+                "('Adela', 'Jaimez', '2023-01-01', 'adelaj','" + pass1234 + "', false, 'adroloja@gmail.com', true), " +
+                "('Maria', 'Díaz', '1990-01-01', 'mariad','" + pass1234 + "', false, 'mariadiaz@example.com', true), " +
+                "('Juan', 'Gomez', '1985-05-12', 'juang','" + pass1234 + "', true, 'juangomez@example.com', true), " +
+                "('Laura', 'Perez', '1988-08-20', 'laurap','" + pass1234 + "', false, 'lauraperez@example.com', true), " +
+                "('Carlos', 'Lopez', '1995-04-03', 'carlosl','" + pass1234 + "', true, 'carloslopez@example.com', true), " +
+                "('Sofia', 'Rodriguez', '1992-11-15', 'sofiar','" + pass1234 + "', false, 'sofia@example.com', true), " +
+                "('Andres', 'Martinez', '1987-03-28', 'andresm','" + pass1234 + "', true, 'andres@example.com', true), " +
+                "('Elena', 'Sanchez', '1982-09-10', 'elenas','" + pass1234 + "', false, 'elena@example.com', true), " +
+                "('Javier', 'Fernandez', '1980-06-07', 'javierf','" + pass1234 + "', true, 'javier@example.com', true), " +
+                "('Paula', 'Garcia', '1998-02-25', 'paulag','" + pass1234 + "', false, 'paula@example.com', true), " +
+                "('Antonio', 'Ramirez', '1975-10-18', 'antonior','" + pass1234 + "', true, 'antonio@example.com', true), " +
+                "('Ana', 'Torres', '1999-07-29', 'anat','" + pass1234 + "', false, 'ana@example.com', true), " +
+                "('Pedro', 'Sanz', '1984-12-05', 'pedros','" + pass1234 + "', true, 'pedro@example.com', true), " +
+                "('Luisa', 'Lopez', '1996-06-17', 'luisal','" + pass1234 + "', false, 'luisa@example.com', true), " +
+                "('Raul', 'Gutierrez', '1979-04-30', 'raulg','" + pass1234 + "', true, 'raul@example.com', true), " +
+                "('Carmen', 'Dominguez', '1991-03-14', 'carmed','" + pass1234 + "', false, 'carmen@example.com', true), " +
+                "('Pablo', 'Navarro', '1983-08-22', 'pablon','" + pass1234 + "', true, 'pablo@example.com', true), " +
+                "('Natalia', 'Ruiz', '1989-11-26', 'nataliar','" + pass1234 + "', false, 'natalia@example.com', true), " +
+                "('Hector', 'Jimenez', '1978-07-08', 'hectorj','" + pass1234 + "', true, 'hector@example.com', true), " +
+                "('Marta', 'Ortega', '1994-09-02', 'martaor','" + pass1234 + "', false, 'marta@example.com', true), " +
+                "('Daniel', 'Silva', '1981-05-19', 'daniels','" + pass1234 + "', true, 'daniel@example.com', true), " +
+                "('Eva', 'Moreno', '1986-01-03', 'evam','" + pass1234 + "', false, 'eva@example.com', true), " +
+                "('Roberto', 'Castro', '1993-12-12', 'robertoc','" + pass1234 + "', true, 'roberto@example.com', true), " +
+                "('Isabel', 'Gomez', '1977-06-23', 'isabelg','" + pass1234 + "', false, 'isabel@example.com', true), " +
+                "('Victor', 'Hernandez', '1997-10-07', 'victorh','" + pass1234 + "', true, 'victor@example.com', true), " +
+                "('Cristina', 'Molina', '1980-04-16', 'cristinam','" + pass1234 + "', false, 'cristina@example.com', true), " +
+                "('Ruben', 'Serrano', '1992-02-14', 'rubens','" + pass1234 + "', true, 'ruben@example.com', true), " +
+                "('Silvia', 'Rojas', '1976-12-28', 'silviar','" + pass1234 + "', false, 'silvia@example.com', true), " +
+                "('Miguel', 'Vargas', '1985-08-09', 'miguelv','" + pass1234 + "', true, 'miguel@example.com', true)";
+
 
         jdbcTemplate.execute(sqlPassenger);
 
@@ -195,35 +196,35 @@ public class DataInitializer {
         Random random = new Random();
 
         for (int trainId = 1; trainId <= 30; trainId++) {
-            for (int scheduleId = 1; scheduleId <= 30; scheduleId++) {
-                String insertStopsesSql = "INSERT INTO stops (station_id, train_id, schedule_id, time) VALUES ";
 
-                for (int i = 0; i < 30; i++) {
-                    LocalDateTime horaEstacion1 = fechaInicial.plusDays(i).plusMinutes(0);
-                    LocalDateTime horaEstacion2 = fechaInicial.plusDays(i).plusMinutes(30);
-                    LocalDateTime horaEstacion3 = fechaInicial.plusDays(i).plusMinutes(60);
+            String insertStopsesSql = "INSERT INTO stops (station_id, train_id, schedule_id, time) VALUES ";
 
-                    for (int j = 0; j < 5; j++) {
-                        int estacionAleatoria;
-                        do {
-                            estacionAleatoria = random.nextInt(30) + 1;
-                        } while (estacionAleatoria == 1 || estacionAleatoria == 2 || estacionAleatoria == 3);
+            for (int i = 0; i < 30; i++) {
 
-                        LocalDateTime horaEstacionAleatoria = fechaInicial.plusDays(i).plusMinutes(90 + (j * 30));
+                for (int j = 0; j < 5; j++) {
+                    int estacionAleatoria;
+                    do {
+                        estacionAleatoria = random.nextInt(30) + 1;
+                    } while (estacionAleatoria == 1 || estacionAleatoria == 2 || estacionAleatoria == 3);
 
-                        insertStopsesSql += "(" + estacionAleatoria + ", " + trainId + ", " + scheduleId + ", '" + horaEstacionAleatoria + "'), ";
-                    }
-                    insertStopsesSql += "(" + 1 + ", " + trainId + ", " + scheduleId + ", '" + horaEstacion1 + "'), " +
-                            "(" + 2 + ", " + trainId + ", " + scheduleId + ", '" + horaEstacion2 + "'), " +
-                            "(" + 3 + ", " + trainId + ", " + scheduleId + ", '" + horaEstacion3 + "'), ";
+                    LocalDateTime horaEstacionAleatoria = fechaInicial.plusDays(i).plusMinutes(90 + (j * 30));
+
+                    insertStopsesSql += "(" + estacionAleatoria + ", " + trainId + ", " + trainId + ", '" + horaEstacionAleatoria + "'), ";
                 }
 
-                insertStopsesSql = insertStopsesSql.substring(0, insertStopsesSql.length() - 2);
-
-                jdbcTemplate.execute(insertStopsesSql);
             }
-        }
+            // All days this trip all trains
+            LocalDateTime horaEstacion1 = fechaInicial.plusDays(trainId).plusMinutes(0);
+            LocalDateTime horaEstacion2 = fechaInicial.plusDays(trainId).plusMinutes(30);
+            LocalDateTime horaEstacion3 = fechaInicial.plusDays(trainId).plusMinutes(60);
+            insertStopsesSql += "(" + 1 + ", " + trainId + ", " + trainId + ", '" + horaEstacion1 + "'), " +
+                    "(" + 2 + ", " + trainId + ", " + trainId + ", '" + horaEstacion2 + "'), " +
+                    "(" + 3 + ", " + trainId + ", " + trainId + ", '" + horaEstacion3 + "'), ";
+            insertStopsesSql = insertStopsesSql.substring(0, insertStopsesSql.length() - 2);
 
+            jdbcTemplate.execute(insertStopsesSql);
+
+            }
 
         String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id, seat)" +
                 "VALUES " +

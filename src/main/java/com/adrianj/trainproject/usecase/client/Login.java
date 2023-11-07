@@ -2,6 +2,8 @@ package com.adrianj.trainproject.usecase.client;
 
 import com.adrianj.trainproject.config.jwt.JwtUtils;
 import com.adrianj.trainproject.domain.entities.Passenger;
+import com.adrianj.trainproject.domain.exception.ResourceNotFoundException;
+import com.adrianj.trainproject.domain.exception.ResponseException;
 import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,22 +37,35 @@ public class Login {
             Passenger passenger1 = optionalPassenger.get();
 
             if(bCryptPasswordEncoder.matches(passenger.getPassword(), passenger1.getPassword())){
-                String token = jwtUtils.generateToken(passenger1.getUsername());
 
-                UserDto userDto = new UserDto();
-                passenger1.setPassword(passenger.getPassword());
-                userDto.setPassenger(passenger1);
-                userDto.setToken(token);
+                if(passenger1.isValidate()){
 
-                return ResponseEntity.ok(userDto);
+                    String token = jwtUtils.generateToken(passenger1.getUsername());
+
+                    UserDto userDto = new UserDto();
+                    passenger1.setPassword(passenger.getPassword());
+                    userDto.setPassenger(passenger1);
+                    userDto.setToken(token);
+
+                    return ResponseEntity.ok(userDto);
+                }else{
+
+                    //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The user " + passenger1.getUsername() + " has to validate email. Thanks");
+                    return new ResponseException().getNotFoundException(new ResourceNotFoundException(""), "The user " + passenger1.getUsername() + " has to validate email. Thanks");
+                }
+
 
             }else{
 
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The password is not correct, please try again");
+                return new ResponseException().getNotFoundException(new ResourceNotFoundException(""),"The password is not correct, please try again");
+
+                //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The password is not correct, please try again");
             }
         }else{
 
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The username is not exist, please try again");
+            return new ResponseException().getNotFoundException(new ResourceNotFoundException(""), "The username is not exist, please try again");
+
+            //return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The username is not exist, please try again");
         }
     }
 

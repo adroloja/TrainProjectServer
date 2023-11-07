@@ -1,5 +1,6 @@
 package com.adrianj.trainproject.domain.exception;
 
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

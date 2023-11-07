@@ -123,7 +123,8 @@ public class TrainService {
 
                     stopsList.forEach(n -> {
 
-                        if(n.getTime().getDay() == dateStart && n.getStationStop().getId() == requestSearchTrain.getStationId2() && n.getTrainStops().getId() == trainId){
+                        if(n.getTime().getDay() == dateStart && n.getStationStop().getId() == requestSearchTrain.getStationId2()
+                                && n.getTrainStops().getId() == trainId && n.getTime().getDay() == dateStart){
 
                             if(!result.contains(n)){
 

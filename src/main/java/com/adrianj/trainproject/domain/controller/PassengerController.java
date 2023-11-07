@@ -29,4 +29,10 @@ public class PassengerController {
 
         return passengerService.deletePassenger(id);
     }
+
+    @PostMapping("/checkValidationToken")
+    public ResponseEntity<?> checkValidationToken(@RequestBody PassengerService.ValidationEmailToken_DTO request){
+
+        return passengerService.checkTokenValidation(request.getId(), request.getToken());
+    }
 }

@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtUtils jwtUtils;
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -40,7 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/searchTrain").permitAll()
                 .antMatchers("/getStations").permitAll()
                 .antMatchers("/checktrainByDay").permitAll()
+                .antMatchers("/insertLocation").permitAll()
                 .antMatchers("/email").permitAll()
+                .antMatchers("/confirmValidateEmail/**").permitAll()
+                .antMatchers("/checkValidationToken").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtUtils), UsernamePasswordAuthenticationFilter.class);
