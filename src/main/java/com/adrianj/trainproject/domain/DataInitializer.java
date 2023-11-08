@@ -224,7 +224,7 @@ public class DataInitializer {
 
             jdbcTemplate.execute(insertStopsesSql);
 
-            }
+        }
 
         String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id, seat)" +
                 "VALUES " +

@@ -9,6 +9,7 @@ import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
+import com.adrianj.trainproject.domain.services.EmailService;
 import com.adrianj.trainproject.domain.services.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class BuyTicket {
     private final TrainRepository trainRepository;
     private final StopsRepository stopsRepository;
     private final TicketService ticketService;
+    private final EmailService emailService;
 
     @PostMapping("/buyTicket")
     public ResponseEntity<?> buy(@RequestBody RequestBuyTicket requestBuyTicket) throws ParseException {
@@ -187,6 +189,7 @@ public class BuyTicket {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The Passenger doesn´t exist. Thanks.");
         }
 
+        emailService.sendTicket(ticket);
         ticketRepository.save(ticket);
 
         return ResponseEntity.ok(ticket);

@@ -5,11 +5,14 @@ import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TicketRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
+import com.adrianj.trainproject.domain.services.EmailService;
 import com.adrianj.trainproject.domain.services.TicketService;
+import com.adrianj.trainproject.usecase.employees.AddNewStation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +27,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class BuyTicketTest {
-
-    @InjectMocks
-    BuyTicket buyTicket;
 
     @Mock
     TicketRepository ticketRepository;
@@ -61,11 +61,12 @@ class BuyTicketTest {
         passenger.setEmploye(false);
         passenger.setSurname("prueba");
 
+
         requestBuyTicket = new BuyTicket.RequestBuyTicket();
         requestBuyTicket.setTrainNumber(1);
         requestBuyTicket.setIdStartStops(1l);
         requestBuyTicket.setIdEndStops(3l);
-        requestBuyTicket.setIdPassenger(4l);
+        requestBuyTicket.setIdPassenger(28l);
 
         train = new Train();
         train.setNumber(1);
@@ -99,6 +100,8 @@ class BuyTicketTest {
         when(ticketService.getTicketByDay(anyInt(), anyString())).thenReturn(new ArrayList<>());
         when(ticketRepository.getListPassenger(anyInt(), any(Date.class), any(Date.class))).thenReturn(Optional.of(new ArrayList<>()));
 
+        EmailService emailService = mock(EmailService.class);
+        BuyTicket buyTicket = new BuyTicket(ticketRepository, passengerRepository, trainRepository,stopsRepository,ticketService,emailService);
 
         ResponseEntity<?> response = buyTicket.buy(requestBuyTicket);
 

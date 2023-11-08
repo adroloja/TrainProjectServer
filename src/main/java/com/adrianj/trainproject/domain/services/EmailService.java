@@ -26,6 +26,7 @@ public class EmailService {
 
     @Value("${base.url}")
     private String baseUrl;
+
     public void sendCodeValidation(long passengerId, String email, String token){
 
         MimeMessage message = sender.createMimeMessage();
@@ -58,6 +59,29 @@ public class EmailService {
 
     public void sendTicket(Ticket ticket){
 
+        MimeMessage message = sender.createMimeMessage();
+
+        try{
+
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+            helper.setFrom("ilikeeljamon@gmail.com");
+            helper.setTo(ticket.getPassenger().getEmail());
+            helper.setSubject( ticket.getPassenger().getName() + " the ticket has been bought successfully" + ticket.getId());
+
+            String htmlContent =  "<div style=\"background: #ece4db\">" +
+                    " <div><h1>Tiket:</h1></div>" +
+                    "<div><h2>Passenger: <strong>" + ticket.getPassenger().getName() + " " + ticket.getPassenger().getSurname() + "</strong></h2></div>" +
+                    "<div><h3>From: <strong>" + ticket.getStartStops().getStationStop().getName() + "</strong> at <strong>" + ticket.getStartStops().getTime() + "</strong></h3></div>" +
+                    "<div><h3>To:  <strong>" + ticket.getEndStops().getStationStop().getName() + "</strong> at <strong>" + ticket.getEndStops().getTime() + "</strong></h3></div></div>";
+
+            helper.setText(htmlContent, true);
+            sender.send(message);
+
+        }catch (MessagingException e){
+
+            throw new RuntimeException(e);
+        }
 
     }
 }
