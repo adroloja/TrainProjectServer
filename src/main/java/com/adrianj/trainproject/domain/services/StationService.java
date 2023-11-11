@@ -5,6 +5,7 @@ import com.adrianj.trainproject.domain.repositories.StationRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -75,7 +76,13 @@ public class StationService {
 
         if(optionalStation.isPresent()){
 
-            stationRepository.delete(optionalStation.get());
+           try{
+               stationRepository.delete(optionalStation.get());
+
+           }catch (DataIntegrityViolationException e){
+
+               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"message\": \"Unable to delete the Station. It is associated with tickets/stops.\"}");
+           }
 
             return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{

@@ -6,6 +6,8 @@ import com.adrianj.trainproject.domain.repositories.ScheduleRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -51,7 +53,13 @@ public class ScheduleService {
     public ResponseEntity<?> deleteSchedule(long id){
 
         Schedule schedule = scheduleRepository.findById(id).orElseThrow();
-        scheduleRepository.delete(schedule);
+        try{
+            scheduleRepository.delete(schedule);
+        }catch (DataIntegrityViolationException e){
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"Unable to delete the schedule. It is associated with a train.\"}");
+        }
+
 
         return ResponseEntity.ok("{\"message\": \"Delete completed successfully.\"}");
     }

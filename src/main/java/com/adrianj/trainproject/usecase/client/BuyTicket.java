@@ -65,9 +65,10 @@ public class BuyTicket {
 
             startStops = optionalStops.get();
             time = startStops.getTime();
+            time.setHours(time.getHours() - 1);
         }else{
 
-            return ResponseEntity.status(HttpStatus.MULTI_STATUS).body("The stop doesn´t exist. Thanks.");
+            return ResponseEntity.status(HttpStatus.MULTI_STATUS).body("{\"message\": \"The stop doesn´t exist. Thanks.\"}");
         }
 
 
@@ -80,7 +81,7 @@ public class BuyTicket {
 
         // If there aren´t available seats
         if (numberPassenger >= maxSeat)
-            return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body("No available seats. Thanks");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"No available seats. Thanks\"}");
 
         //
         // Secondly, Check if the passenger is already registred.
@@ -93,7 +94,7 @@ public class BuyTicket {
             passenger = optionalPassenger.get();
         }else{
 
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("The passenger doesn´t exist. Thanks.");
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("{\"message\":\"The passenger doesn´t exist. Thanks.\"}");
         }
         Date startDateTime = new Date();
         Date endTime = new Date();
@@ -131,7 +132,7 @@ public class BuyTicket {
         }
 
         if (registred)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The passenger is already registred in this train. Thanks");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"The passenger is already registred in this train. Thanks\"}");
 
 
         //
@@ -148,16 +149,16 @@ public class BuyTicket {
         String startDay = simpleDateFormatDate.format(time);
         String startTime = simpleDateFormatTime.format(time);
 
-        System.out.println(startTime);
-        System.out.println(startTime);
+        //System.out.println(currentTimeString);
+        //System.out.println(startTime);
 
         if (currentDate.equals(startDay)) {
 
             Date trainTime = simpleDateFormatTime.parse(startTime);
             Date currentTime = simpleDateFormatTime.parse(currentTimeString);
 
-            currentTime.setHours(currentTime.getHours() + 1);
-            trainTime.setHours(trainTime.getHours() - 1);
+            currentTime.setHours(currentTime.getHours());
+            trainTime.setHours(trainTime.getHours());
 
             long difference = Math.abs(trainTime.getTime() - currentTime.getTime());
 
@@ -165,7 +166,7 @@ public class BuyTicket {
             long diffMin = difference / (60 * 1000);
 
             if (diffMin <= 10) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Sorry, You can´t buy the ticket, the train leaves in less than 10 minutes. Thanks");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"Sorry, You can´t buy the ticket, the train leaves in less than 10 minutes. Thanks.\"}");
             }
 
         }
@@ -186,11 +187,13 @@ public class BuyTicket {
             ticket.setSeat(numberPassenger + 1);
 
         }else{
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("The Passenger doesn´t exist. Thanks.");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"The Passenger doesn´t exist. Thanks.\"}");
         }
 
-        emailService.sendTicket(ticket);
         ticketRepository.save(ticket);
+        List<Ticket> list = (List<Ticket>) ticketRepository.findAll();
+        Ticket t = list.get(list.size() - 1);
+        emailService.sendTicket(t);
 
         return ResponseEntity.ok(ticket);
     }

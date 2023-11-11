@@ -10,6 +10,7 @@ import com.adrianj.trainproject.domain.repositories.StationRepository;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -172,21 +173,20 @@ public class StopService {
     }
 
     public ResponseEntity<?> deleteStops(long id){
+        try {
+            Optional<Stops> optionalStops = stopsRepository.findById(id);
 
-        Optional<Stops> optionalStops = stopsRepository.findById(id);
-
-        if(optionalStops.isPresent()){
-
-            stopsRepository.delete(optionalStops.get());
-
-            return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
-
-        }else{
-
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The stops doesn´t exist.\"}");
-
+            if (optionalStops.isPresent()) {
+                stopsRepository.delete(optionalStops.get());
+                return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\": \"The stops doesn't exist.\"}");
+            }
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"message\": \"Unable to delete the stops. It is associated with other entities.\"}");
         }
     }
+
 
     public static class RequestCreateStop{
 

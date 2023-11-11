@@ -8,6 +8,7 @@ import com.adrianj.trainproject.domain.exception.ResourceNotFoundException;
 import com.adrianj.trainproject.domain.repositories.StopsRepository;
 import com.adrianj.trainproject.domain.repositories.TrainRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -70,7 +71,14 @@ public class TrainService {
 
         if(optionalTrain.isPresent()){
 
-            trainRepository.delete(optionalTrain.get());
+            try{
+
+                trainRepository.delete(optionalTrain.get());
+
+            }catch (DataIntegrityViolationException e){
+
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"message\": \"Unable to delete the train. It is associated with tickets/stops.\"}");
+            }
 
             return ResponseEntity.ok("{\"message\": \"Delete completed\"}");
         }else{

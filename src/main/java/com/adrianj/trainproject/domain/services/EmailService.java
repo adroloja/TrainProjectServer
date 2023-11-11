@@ -7,6 +7,7 @@ import com.adrianj.trainproject.domain.repositories.PassengerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -23,6 +24,7 @@ public class EmailService {
 
     private final JavaMailSender sender;
     private final PassengerRepository passengerRepository;
+    private final PdfService pdfService;
 
     @Value("${base.url}")
     private String baseUrl;
@@ -63,17 +65,24 @@ public class EmailService {
 
         try{
 
+            byte[] bytesPdf = pdfService.createTicketPdf(ticket);
+
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
             helper.setFrom("ilikeeljamon@gmail.com");
             helper.setTo(ticket.getPassenger().getEmail());
-            helper.setSubject( ticket.getPassenger().getName() + " the ticket has been bought successfully" + ticket.getId());
+            helper.setSubject( ticket.getPassenger().getName() + " the ticket has been bought successfully");
 
+            helper.addAttachment("ticket.pdf", new ByteArrayResource(bytesPdf));
+
+            String htmlContent = "<h1> Thanks for your purchase ";
+          /*
             String htmlContent =  "<div style=\"background: #ece4db\">" +
                     " <div><h1>Tiket:</h1></div>" +
                     "<div><h2>Passenger: <strong>" + ticket.getPassenger().getName() + " " + ticket.getPassenger().getSurname() + "</strong></h2></div>" +
                     "<div><h3>From: <strong>" + ticket.getStartStops().getStationStop().getName() + "</strong> at <strong>" + ticket.getStartStops().getTime() + "</strong></h3></div>" +
                     "<div><h3>To:  <strong>" + ticket.getEndStops().getStationStop().getName() + "</strong> at <strong>" + ticket.getEndStops().getTime() + "</strong></h3></div></div>";
+           */
 
             helper.setText(htmlContent, true);
             sender.send(message);

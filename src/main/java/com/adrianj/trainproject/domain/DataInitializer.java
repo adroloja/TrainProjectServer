@@ -12,7 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Random;
 
 @Component
@@ -87,7 +89,41 @@ public class DataInitializer {
 
         jdbcTemplate.execute(sqlPassenger);
 
-        String insertStationsSql = "INSERT INTO station (name) VALUES " +
+        String insertStationsSql = "INSERT INTO station (name, lat, lng) VALUES " +
+                "('Málaga', '36.7213', '-4.4215'), " +
+                "('Granada', '37.1773', '-3.5986'), " +
+                "('Sevilla', '37.3886', '-5.9823'), " +
+                "('Madrid', '40.4069', '-3.6908'), " +
+                "('Barcelona', '41.3797', '2.1408'), " +
+                "('Valencia', '39.4664', '-0.3741'), " +
+                "('Bilbao', '43.2644', '-2.9345'), " +
+                "('Alicante', '38.3440', '-0.4902'), " +
+                "('Córdoba', '37.8799', '-4.7817'), " +
+                "('Murcia', '37.9793', '-1.1287'), " +
+                "('Valladolid', '41.6520', '-4.7286'), " +
+                "('Zaragoza', '41.6488', '-0.8891'), " +
+                "('Santander', '43.4623', '-3.8099'), " +
+                "('Toledo', '39.8628', '-4.0273'), " +
+                "('Gijón', '43.5322', '-5.6611'), " +
+                "('Tarragona', '41.1189', '1.2445'), " +
+                "('Cádiz', '36.5298', '-6.2926'), " +
+                "('Huelva', '37.2614', '-6.9447'), " +
+                "('Pamplona', '42.8125', '-1.6458'), " +
+                "('Salamanca', '40.9701', '-5.6635'), " +
+                "('Almería', '36.8340', '-2.4637'), " +
+                "('Girona', '41.9794', '2.8214'), " +
+                "('Lleida', '41.6176', '0.6223'), " +
+                "('León', '42.5987', '-5.5671'), " +
+                "('Oviedo', '43.3614', '-5.8593'), " +
+                "('Castellón', '39.9864', '-0.0513'), " +
+                "('Badajoz', '38.8794', '-6.9707'), " +
+                "('Segovia', '40.9429', '-4.1088'), " +
+                "('Cuenca', '40.0704', '-2.1374'), " +
+                "('Ávila', '40.6566', '-4.7007')";
+
+
+        /*
+                String insertStationsSql = "INSERT INTO station (name) VALUES " +
                 "('Málaga'), " +
                 "('Granada'), " +
                 "('Sevilla'), " +
@@ -118,12 +154,13 @@ public class DataInitializer {
                 "('Segovia'), " +
                 "('Cuenca'), " +
                 "('Ávila')";
+         */
 
 
         jdbcTemplate.execute(insertStationsSql);
 
         String insertTrainsSql = "INSERT INTO train (number, seats) VALUES " +
-                "(1, 100), " +
+                "(1, 2), " +
                 "(2, 120), " +
                 "(3, 100), " +
                 "(4, 110), " +
@@ -192,7 +229,21 @@ public class DataInitializer {
 
         jdbcTemplate.execute(insertScheduleSql);
 
-        LocalDateTime fechaInicial = LocalDateTime.of(2023, 11, 10, 10, 30);
+        Date date = new Date();
+
+        //LocalDateTime fechaInicial = LocalDateTime.of(2023, 11, 10, 10, 30);
+        int year = date.getYear();
+        int month = date.getMonth() + 1;
+        LocalDate dateDay = LocalDate.now();
+        int dayOfMothn = dateDay.getDayOfMonth();
+        date.setMinutes(date.getMinutes() -20);
+        int hour = date.getHours();
+        int min = date.getMinutes();
+        //int hour = 17;
+        //int min = 7;
+        System.out.println("year: " + year + " " + "month: " + month + " hour: " + hour + " min: " + min);
+        LocalDateTime fechaInicial = LocalDateTime.of(2023, month, dayOfMothn, hour, min);
+
         Random random = new Random();
 
         for (int trainId = 1; trainId <= 30; trainId++) {
@@ -229,8 +280,7 @@ public class DataInitializer {
         String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id, seat)" +
                 "VALUES " +
                 "  (1, 3, 2, 1)," +
-                "  (2, 3, 3, 2)," +
-                "  (1, 2, 1, 3);";
+                "  (1, 2, 1, 2);";
 
         jdbcTemplate.execute(insertTicket);
 
