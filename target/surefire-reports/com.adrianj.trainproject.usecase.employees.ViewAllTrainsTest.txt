@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.adrianj.trainproject.usecase.employees.ViewAllTrainsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.adrianj.trainproject.usecase.employees.ViewAllTrainsTest

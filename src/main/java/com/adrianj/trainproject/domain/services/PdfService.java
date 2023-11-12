@@ -1,20 +1,14 @@
 package com.adrianj.trainproject.domain.services;
 
 import com.adrianj.trainproject.domain.entities.Ticket;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceCmyk;
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.borders.RoundDotsBorder;
-import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
+import java.awt.Font;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 
@@ -23,29 +17,27 @@ import java.io.FileNotFoundException;
 public class PdfService {
 
     public byte[] createTicketPdf(Ticket ticket) {
-
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            PdfWriter writer = new PdfWriter(outputStream);
-            PdfDocument pdf = new PdfDocument(writer);
-            Document document = new Document(pdf);
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.getInstance(document, outputStream);
+            document.open();
 
-            Color backgroundColor = new DeviceCmyk(0.2f, 0.1f, 0f, 0f);
-            Color borderColor = new DeviceCmyk(0.4f, 0.2f, 0f, 0f);
-            Color textColor = new DeviceCmyk(0f, 0f, 0f, 1f);
+            PdfPTable table = new PdfPTable(1);
+            PdfPCell cell = new PdfPCell();
 
+            cell.addElement(new Chunk("Ticket ID: " + ticket.getId() + " " + "Train: " + ticket.getEndStops().getTrainStops().getNumber() + " Seat: " + ticket.getSeat() + "/" + ticket.getEndStops().getTrainStops().getSeats() + "\n"));
+            cell.addElement(new Chunk("Passenger: " + ticket.getPassenger().getName() + " " + ticket.getPassenger().getSurname() + "\n"));
+            cell.addElement(new Chunk("Start Station: " + ticket.getStartStops().getStationStop().getName() + " Time: " + ticket.getStartStops().getTime() + "\n"));
+            cell.addElement(new Chunk("End Station: " + ticket.getEndStops().getStationStop().getName() + " Time: " + ticket.getEndStops().getTime() + "\n"));
 
-            Paragraph ticketInfo = new Paragraph()
-                    .add("Ticket ID: " + ticket.getId() + " " + "\t\t\tTrain: " + ticket.getEndStops().getTrainStops().getNumber() + "\t\t\t Seat: " + ticket.getSeat() + "/" + ticket.getEndStops().getTrainStops().getSeats() + "\n").setBold().setFontColor(textColor)
-                    .add("Passenger: " + ticket.getPassenger().getName() + " " + ticket.getPassenger().getSurname() + "\n").setBold().setFontColor(textColor)
-                    .add("Start Station: " + ticket.getStartStops().getStationStop().getName() + "\t\t Time: " + ticket.getStartStops().getTime() + "\n").setBold().setFontColor(textColor)
-                    .add("End Station: " + ticket.getEndStops().getStationStop().getName() + " \t\tTime: " + ticket.getEndStops().getTime() + "\n").setBold().setFontColor(textColor)
-                    .setBorder(new RoundDotsBorder(borderColor, 2f))
-                    .setPadding(10f)
-                    .setMargins(20f, 20f, 20f, 20f)
-                    .setTextAlignment(TextAlignment.LEFT);
+            cell.setBorderColor(BaseColor.BLACK);
+            cell.setBorderWidth(2f);
+            cell.setPadding(10);
 
-            document.add(ticketInfo);
+            table.addCell(cell);
+            document.add(table);
+
             document.close();
 
             return outputStream.toByteArray();
@@ -54,6 +46,6 @@ public class PdfService {
             log.error(ex.getMessage());
             throw new RuntimeException(ex);
         }
-
     }
 }
+

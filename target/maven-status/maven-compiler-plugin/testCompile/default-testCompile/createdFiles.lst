@@ -1,0 +1,8 @@
+com\adrianj\trainproject\usecase\client\CheckStationTrainScheduleTest.class
+com\adrianj\trainproject\usecase\client\SearchTrainTest.class
+com\adrianj\trainproject\usecase\employees\AddNewStationTest.class
+com\adrianj\trainproject\usecase\employees\ViewAllTrainsTest.class
+com\adrianj\trainproject\TrainprojectApplicationTests.class
+com\adrianj\trainproject\usecase\employees\ViewPassengerTrainTest.class
+com\adrianj\trainproject\usecase\client\BuyTicketTest.class
+com\adrianj\trainproject\usecase\employees\AddNewTrainTest.class

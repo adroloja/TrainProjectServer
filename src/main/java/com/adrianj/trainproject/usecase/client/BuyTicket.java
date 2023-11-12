@@ -192,8 +192,15 @@ public class BuyTicket {
 
         ticketRepository.save(ticket);
         List<Ticket> list = (List<Ticket>) ticketRepository.findAll();
-        Ticket t = list.get(list.size() - 1);
-        emailService.sendTicket(t);
+
+        if(!list.isEmpty()){
+            Ticket t = list.get(list.size() - 1);
+            emailService.sendTicket(t);
+        }else{
+
+            emailService.sendTicket(ticket);
+        }
+
 
         return ResponseEntity.ok(ticket);
     }

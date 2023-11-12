@@ -55,7 +55,7 @@ class BuyTicketTest {
         MockitoAnnotations.initMocks(this);
 
         passenger = new Passenger();
-        passenger.setId(11);
+        passenger.setId(71);
         passenger.setName("prueba");
         passenger.setUsername("prueba");
         passenger.setEmploye(false);
@@ -104,7 +104,6 @@ class BuyTicketTest {
         BuyTicket buyTicket = new BuyTicket(ticketRepository, passengerRepository, trainRepository,stopsRepository,ticketService,emailService);
 
         ResponseEntity<?> response = buyTicket.buy(requestBuyTicket);
-
 
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());

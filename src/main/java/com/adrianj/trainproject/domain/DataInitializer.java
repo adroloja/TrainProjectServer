@@ -241,7 +241,7 @@ public class DataInitializer {
         int min = date.getMinutes();
         //int hour = 17;
         //int min = 7;
-        System.out.println("year: " + year + " " + "month: " + month + " hour: " + hour + " min: " + min);
+        //System.out.println("year: " + year + " " + "month: " + month + " hour: " + hour + " min: " + min);
         LocalDateTime fechaInicial = LocalDateTime.of(2023, month, dayOfMothn, hour, min);
 
         Random random = new Random();
