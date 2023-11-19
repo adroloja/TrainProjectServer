@@ -121,47 +121,11 @@ public class DataInitializer {
                 "('Cuenca', '40.0704', '-2.1374'), " +
                 "('Ávila', '40.6566', '-4.7007')";
 
-
-        /*
-                String insertStationsSql = "INSERT INTO station (name) VALUES " +
-                "('Málaga'), " +
-                "('Granada'), " +
-                "('Sevilla'), " +
-                "('Madrid'), " +
-                "('Barcelona'), " +
-                "('Valencia'), " +
-                "('Bilbao'), " +
-                "('Alicante'), " +
-                "('Córdoba'), " +
-                "('Murcia'), " +
-                "('Valladolid'), " +
-                "('Zaragoza'), " +
-                "('Santander'), " +
-                "('Toledo'), " +
-                "('Gijón'), " +
-                "('Tarragona'), " +
-                "('Cádiz'), " +
-                "('Huelva'), " +
-                "('Pamplona'), " +
-                "('Salamanca'), " +
-                "('Almería'), " +
-                "('Girona'), " +
-                "('Lleida'), " +
-                "('León'), " +
-                "('Oviedo'), " +
-                "('Castellón'), " +
-                "('Badajoz'), " +
-                "('Segovia'), " +
-                "('Cuenca'), " +
-                "('Ávila')";
-         */
-
-
         jdbcTemplate.execute(insertStationsSql);
 
         String insertTrainsSql = "INSERT INTO train (number, seats) VALUES " +
                 "(1, 2), " +
-                "(2, 120), " +
+                "(2, 0), " +
                 "(3, 100), " +
                 "(4, 110), " +
                 "(5, 90), " +
@@ -250,6 +214,15 @@ public class DataInitializer {
 
             String insertStopsesSql = "INSERT INTO stops (station_id, train_id, schedule_id, time) VALUES ";
 
+            // All days this trip all trains
+
+            LocalDateTime horaEstacion1 = fechaInicial.plusDays(trainId - 1).plusHours(1).plusMinutes(30);
+            LocalDateTime horaEstacion2 = fechaInicial.plusDays(trainId - 1).plusHours(2);
+            LocalDateTime horaEstacion3 = fechaInicial.plusDays(trainId - 1).plusHours(2).plusMinutes(30);
+            insertStopsesSql += "(" + 1 + ", " + trainId + ", " + trainId + ", '" + horaEstacion1 + "'), " +
+                    "(" + 2 + ", " + trainId + ", " + trainId + ", '" + horaEstacion2 + "'), " +
+                    "(" + 3 + ", " + trainId + ", " + trainId + ", '" + horaEstacion3 + "'), ";
+
             for (int i = 0; i < 30; i++) {
 
                 for (int j = 0; j < 5; j++) {
@@ -264,13 +237,7 @@ public class DataInitializer {
                 }
 
             }
-            // All days this trip all trains
-            LocalDateTime horaEstacion1 = fechaInicial.plusDays(trainId).plusMinutes(0);
-            LocalDateTime horaEstacion2 = fechaInicial.plusDays(trainId).plusMinutes(30);
-            LocalDateTime horaEstacion3 = fechaInicial.plusDays(trainId).plusMinutes(60);
-            insertStopsesSql += "(" + 1 + ", " + trainId + ", " + trainId + ", '" + horaEstacion1 + "'), " +
-                    "(" + 2 + ", " + trainId + ", " + trainId + ", '" + horaEstacion2 + "'), " +
-                    "(" + 3 + ", " + trainId + ", " + trainId + ", '" + horaEstacion3 + "'), ";
+
             insertStopsesSql = insertStopsesSql.substring(0, insertStopsesSql.length() - 2);
 
             jdbcTemplate.execute(insertStopsesSql);
@@ -279,8 +246,7 @@ public class DataInitializer {
 
         String insertTicket = "INSERT INTO ticket (start_stop_station_id, end_stop_station_id, passenger_id, seat)" +
                 "VALUES " +
-                "  (1, 3, 2, 1)," +
-                "  (1, 2, 1, 2);";
+                "  (1, 3, 2, 1);";
 
         jdbcTemplate.execute(insertTicket);
 

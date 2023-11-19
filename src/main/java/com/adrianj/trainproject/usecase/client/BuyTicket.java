@@ -157,18 +157,26 @@ public class BuyTicket {
             Date trainTime = simpleDateFormatTime.parse(startTime);
             Date currentTime = simpleDateFormatTime.parse(currentTimeString);
 
+            int comparation = trainTime.compareTo(currentTime);
+
+            if (comparation < 0) {
+
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"Sorry, You can´t buy the ticket, the train has left. Thanks\"}");
+
+            }
+
             currentTime.setHours(currentTime.getHours());
             trainTime.setHours(trainTime.getHours());
 
             long difference = Math.abs(trainTime.getTime() - currentTime.getTime());
 
-
             long diffMin = difference / (60 * 1000);
 
-            if (diffMin <= 10) {
+            //System.out.println("diference is: " + diffMin);
+
+            if (diffMin <= 10 && diffMin > 0) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"message\":\"Sorry, You can´t buy the ticket, the train leaves in less than 10 minutes. Thanks.\"}");
             }
-
         }
 
         //
