@@ -8,18 +8,12 @@
 <li> If you don´t want to run client do:</li>
         
     - Open docker-compose.yml and remove:
-        app:
+        client:
             build:
-              context: target
+              context: ./client
               dockerfile: Dockerfile
             ports:
-              - "8034:8034"
-            environment:
-              SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/trainDDBB
-              SPRING_DATASOURCE_USERNAME: root
-              SPRING_DATASOURCE_PASSWORD: mypassword
-            depends_on:
-              - db
+              - "4200:80"
     - Now go to the root directory, the same directory that docker-compose.yml and run: "docker-compose up", now the server and Sql service is running.
 </ul>
 
