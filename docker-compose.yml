@@ -1,15 +1,5 @@
 version: '3'
 services:
-  app:
-    build:
-      context: target
-      dockerfile: Dockerfile
-    ports:
-      - "8034:8034"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/trainDDBB
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: mypassword
   db:
     image: mysql:8.0
     environment:
@@ -25,5 +15,17 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4200:80"
+  app:
+    build:
+      context: target
+      dockerfile: Dockerfile
+    ports:
+      - "8034:8034"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/trainDDBB
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: mypassword
+    depends_on:
+      - db
 volumes:
   db_data:
