@@ -5,21 +5,22 @@
 <h5>- Run Server</h5>
 <ul>
 <li>Install Docker, and open it.</li>
-<li>Root project open console and run: mvn clean</li>
-<li>After that run: mvn package</li>
-<li>Go to target directory and create a new file named Dockerfile</li>
-<li>Open Dockerfile with an editor and write:</li>
-    
-    FROM openjdk:17
-    
-    WORKDIR /app
-    
-    COPY trainproject-0.0.1-SNAPSHOT.jar app.jar
-    
-    EXPOSE 8034
-    
-    CMD ["java", "-jar", "app.jar"]
-<li> If you don´t want to run client do: Now go to the root directory, the same directory that docker-compose.yml and run: "docker-compose up", now the server and Sql service is running.</li>
+<li> If you don´t want to run client do:</li>
+        
+    - Open docker-compose.yml and remove:
+        app:
+            build:
+              context: target
+              dockerfile: Dockerfile
+            ports:
+              - "8034:8034"
+            environment:
+              SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/trainDDBB
+              SPRING_DATASOURCE_USERNAME: root
+              SPRING_DATASOURCE_PASSWORD: mypassword
+            depends_on:
+              - db
+    - Now go to the root directory, the same directory that docker-compose.yml and run: "docker-compose up", now the server and Sql service is running.
 </ul>
 
 <h5>- Run Client</h5>
@@ -44,34 +45,6 @@
         │   ├── etc 
         │
         └── docker-compose.yml    
-
-<li> Create Dockerfile with this content (in client directory):</li>
-
-    # Step 1: Build the Angular application
-    FROM node:latest as build
-    WORKDIR /app
-    COPY package.json package-lock.json ./
-    RUN npm install
-    COPY . .
-    RUN npm run build
-    
-    # Step 2: Serve the application with Nginx
-    FROM nginx:1.19.0-alpine
-    COPY --from=build /app/dist/front-train-project /usr/share/nginx/html
-    COPY nginx-custom.conf /etc/nginx/conf.d/default.conf
-
-<li> Create a nginx-custom.conf (in client directory):</li>
-
-    server {
-    listen 80;
-    
-        root /usr/share/nginx/html;
-        index index.html;
-    
-        location / {
-            try_files $uri $uri/ /index.html;
-        }
-    }
 
 <li> Run docker-compose.yml with this command in terminal y same directory: "docker-compose up"</li>
 <li>Now the project is running!</li>
