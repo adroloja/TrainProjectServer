@@ -125,6 +125,7 @@ public class StopService {
         Train train = trainRepository.findById((long) requestCreateStop.getTrainId()).get();
         Schedule schedule = scheduleRepository.findById((long) requestCreateStop.getScheduleId()).get();
         Date date = simpleDateFormat.parse(requestCreateStop.getTime());
+        date.setHours(date.getHours() - 1);
 
         Optional<List<Stops>> optionalStops = Optional.of((List<Stops>) stopsRepository.findAll());
 
