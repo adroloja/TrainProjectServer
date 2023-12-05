@@ -123,7 +123,7 @@ public class StopService {
 
         Station station = stationRepository.findById((long) requestCreateStop.getStationId()).get();
         Train train = trainRepository.findById((long) requestCreateStop.getTrainId()).get();
-        Schedule schedule = scheduleRepository.findById((long) requestCreateStop.getScheduleId()).get();
+        //Schedule schedule = scheduleRepository.findById((long) requestCreateStop.getScheduleId()).get();
         Date date = simpleDateFormat.parse(requestCreateStop.getTime());
         date.setHours(date.getHours() - 1);
 
@@ -146,7 +146,7 @@ public class StopService {
 
                 Stops stops = new Stops();
                 stops.setStationStop(station);
-                stops.setSchedule(schedule);
+                //stops.setSchedule(schedule);
                 stops.setTrainStops(train);
 
                 date.setHours(date.getHours() + 2);
